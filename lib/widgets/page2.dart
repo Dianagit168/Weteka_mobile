@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:weteka/widgets/button.dart';
 
-class Page1 extends StatelessWidget {
-  const Page1({Key? key}) : super(key: key);
+class Page2 extends StatelessWidget {
+  const Page2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +14,11 @@ class Page1 extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/images/Group 5.png'),
+              Image.asset('assets/images/roket.png'),
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  'Welcome',
+                  'Who we are',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
@@ -26,7 +26,7 @@ class Page1 extends StatelessWidget {
                 ),
               ),
               const Text(
-                'We’re happy to see you here!',
+                'Building the tools for our next generation!',
                 style: TextStyle(
                     fontSize: 17, color: Color.fromARGB(184, 136, 182, 238)),
               ),
@@ -42,7 +42,7 @@ class Page1 extends StatelessWidget {
               ),
               const Spacer(),
               ElevatedButtonCust(
-                tit: 'Get Started',
+                tit: 'Next',
                 w: 365,
                 h: 45,
                 sizfo: 17,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:weteka/screen/first_loading.dart';
+import 'package:weteka/screen/login.dart';
+
 import 'package:weteka/screen/main_page_view.dart';
-import 'package:weteka/widgets/page1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MainPageView(),
+      home: const Login(),
     );
   }
 }

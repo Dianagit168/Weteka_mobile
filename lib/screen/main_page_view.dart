@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../widgets/page1.dart';
+import '../widgets/page2.dart';
+import '../widgets/page3.dart';
 
 class MainPageView extends StatefulWidget {
   const MainPageView({Key? key}) : super(key: key);
@@ -10,14 +13,42 @@ class MainPageView extends StatefulWidget {
 }
 
 class _MainPageViewState extends State<MainPageView> {
+  final _controller = PageController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(children: const [
-        Page1(),
-        Page1(),
-        Page1(),
-      ]),
+      body: Column(
+        children: [
+          SizedBox(
+            height: 750,
+            width: double.infinity,
+            child: PageView(
+              controller: _controller,
+              children: [
+                const Page1(),
+                const Page2(),
+                Page3(),
+              ],
+            ),
+          ),
+          const Spacer(),
+          SmoothPageIndicator(
+            controller: _controller,
+            count: 3,
+            effect: const SlideEffect(
+                spacing: 10.0,
+                radius: 16.0,
+                dotWidth: 13.0,
+                dotHeight: 13.0,
+                paintStyle: PaintingStyle.fill,
+                dotColor: Color.fromARGB(255, 230, 230, 230),
+                activeDotColor: Color.fromARGB(255, 0, 115, 255)),
+          ),
+          const SizedBox(
+            height: 40,
+          )
+        ],
+      ),
     );
   }
 }
