@@ -22,7 +22,7 @@ class ElevatedButtonCust extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         minimumSize: Size(w!, h!),
-        // primary: Color.fromARGB(255, 0, 102, 255),
+        primary: const Color.fromARGB(255, 0, 102, 255),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(circleBut!),
         ),

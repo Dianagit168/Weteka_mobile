@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:weteka/screen/forgotpassword.dart';
 import 'package:weteka/screen/login.dart';
 
 import 'package:weteka/screen/main_page_view.dart';
+import 'package:weteka/screen/register.dart';
+import 'package:weteka/screen/renewpass.dart';
+import 'package:weteka/screen/verifycode.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +31,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const Login(),
+      home: const RenewPassword(),
     );
   }
 }

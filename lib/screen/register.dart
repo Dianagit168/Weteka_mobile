@@ -1,13 +1,11 @@
-// ignore_for_file: unnecessary_const
-
 import 'package:flutter/material.dart';
 
 import '../widgets/appbarcust.dart';
 
-import '../widgets/login_body.dart';
+import '../widgets/register_body.dart';
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class Register extends StatelessWidget {
+  const Register({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +13,7 @@ class Login extends StatelessWidget {
       appBar: appBar(context),
       body: const SingleChildScrollView(
         physics: ScrollPhysics(),
-        child: const LoginBody(),
+        child: RegisterBody(),
       ),
     );
   }

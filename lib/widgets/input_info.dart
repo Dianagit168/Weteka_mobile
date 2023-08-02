@@ -23,11 +23,24 @@ class InputInformation extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(right: titAlign!),
-          child: Text(
-            tit!,
-            style: const TextStyle(
-              color: Color.fromARGB(184, 136, 182, 238),
-            ),
+          child: Row(
+            children: [
+              Text(
+                tit!,
+                style: const TextStyle(
+                  color: Color.fromARGB(184, 136, 182, 238),
+                ),
+              ),
+              const SizedBox(
+                width: 3,
+              ),
+              const Text(
+                '*',
+                style: const TextStyle(
+                  color: Colors.red,
+                ),
+              ),
+            ],
           ),
         ),
         const SizedBox(
@@ -35,7 +48,7 @@ class InputInformation extends StatelessWidget {
         ),
         Container(
           height: 45,
-          margin: const EdgeInsets.only(right: 16),
+          margin: const EdgeInsets.only(right: 10),
           decoration: BoxDecoration(
               border: Border.all(color: const Color.fromARGB(255, 0, 115, 255)),
               borderRadius: const BorderRadius.all(Radius.circular(16))),
