@@ -1,7 +1,4 @@
-// ignore_for_file: unnecessary_const
-
-import 'package:flutter/material.dart';
-
+import '../index.dart';
 import 'boxpin.dart';
 import 'button.dart';
 

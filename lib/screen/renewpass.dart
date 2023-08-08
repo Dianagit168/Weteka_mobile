@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:weteka/widgets/appbarcust.dart';
-
-import '../widgets/renewpass_body.dart';
+import '../index.dart';
 
 class RenewPassword extends StatelessWidget {
   const RenewPassword({Key? key}) : super(key: key);

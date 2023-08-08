@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../data/datalagu.dart';
+import '../index.dart';
 
 class ChooseLanguage extends StatefulWidget {
   const ChooseLanguage({Key? key}) : super(key: key);

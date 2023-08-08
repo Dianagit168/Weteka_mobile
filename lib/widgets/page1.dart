@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-
-import 'package:weteka/widgets/button.dart';
+import '../index.dart';
+import 'button.dart';
 
 class Page1 extends StatelessWidget {
   const Page1({Key? key}) : super(key: key);

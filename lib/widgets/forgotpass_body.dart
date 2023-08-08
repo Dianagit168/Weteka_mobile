@@ -1,7 +1,4 @@
-// ignore_for_file: unnecessary_const
-
-import 'package:flutter/material.dart';
-
+import '../index.dart';
 import 'button.dart';
 import 'input_info.dart';
 
@@ -22,8 +19,8 @@ class ForgotPasswordBody extends StatelessWidget {
             child: Image.asset('assets/images/weteka logo.png'),
           ),
           const Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: const InputInformation(
+            padding: EdgeInsets.only(left: 10),
+            child: InputInformation(
               tit: 'Email',
               titAlign: 324,
               preIcon: Icon(

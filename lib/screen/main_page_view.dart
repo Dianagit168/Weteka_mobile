@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
-import '../widgets/page1.dart';
-import '../widgets/page2.dart';
-import '../widgets/page3.dart';
+import '../index.dart';
 
 class MainPageView extends StatefulWidget {
   const MainPageView({Key? key}) : super(key: key);

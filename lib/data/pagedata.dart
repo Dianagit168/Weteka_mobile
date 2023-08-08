@@ -1,4 +1,4 @@
-import '../model/pagemodel.dart';
+import '../index.dart';
 
 List<PageModel> listDataPage = [
   PageModel(

@@ -1,6 +1,4 @@
-// ignore_for_file: unnecessary_const
-
-import 'package:flutter/material.dart';
+import '../index.dart';
 
 class InputInformation extends StatelessWidget {
   const InputInformation({
@@ -36,7 +34,7 @@ class InputInformation extends StatelessWidget {
               ),
               const Text(
                 '*',
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.red,
                 ),
               ),

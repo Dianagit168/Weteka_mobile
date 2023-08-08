@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../index.dart';
 
 class FirstLoading extends StatelessWidget {
   const FirstLoading({Key? key}) : super(key: key);

@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:weteka/widgets/appbarcust.dart';
-
-import '../widgets/verifycode_body.dart';
+import '../index.dart';
 
 class VerifyCode extends StatelessWidget {
   const VerifyCode({Key? key}) : super(key: key);

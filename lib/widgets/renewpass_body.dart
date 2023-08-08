@@ -76,7 +76,7 @@ class RenewPasswordBody extends StatelessWidget {
           ),
           const Spacer(),
           Container(
-              color: Colors.amber,
+              color: Colors.black,
               child: Image.asset('assets/images/angkor 1.png')),
         ],
       ),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../index.dart';
 
 class BoxPin extends StatelessWidget {
   const BoxPin({

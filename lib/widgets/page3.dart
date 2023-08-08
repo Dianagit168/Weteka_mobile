@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:weteka/widgets/chooselang.dart';
+import '../index.dart';
+import 'chooselang.dart';
 
 class Page3 extends StatelessWidget {
   Page3({Key? key}) : super(key: key);
