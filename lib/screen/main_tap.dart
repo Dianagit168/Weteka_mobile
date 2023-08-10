@@ -1,6 +1,4 @@
 import '../index.dart';
-import '../widgets/coursepage.dart';
-import '../widgets/schoolsubscribed.dart';
 
 class MainTap extends StatelessWidget {
   const MainTap({Key? key}) : super(key: key);
@@ -11,17 +9,13 @@ class MainTap extends StatelessWidget {
       length: 5,
       child: Scaffold(
         body: Stack(alignment: AlignmentDirectional.bottomCenter, children: [
-          TabBarView(
+          const TabBarView(
             children: [
-              const Homepage(),
-              const LibraryPage(),
-              const CoursePage(),
-              const SchoolSubscribedPage(),
-              Container(
-                color: Colors.black,
-                width: 100,
-                height: 100,
-              ),
+              Homepage(),
+              LibraryPage(),
+              CoursePage(),
+              SchoolSubscribedPage(),
+              SettingPage(),
             ],
           ),
           Container(

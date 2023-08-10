@@ -20,6 +20,10 @@ export '../widgets/librarypage.dart';
 export 'package:weteka/widgets/homepage.dart';
 export 'package:weteka/widgets/course.dart';
 export 'package:weteka/widgets/subchanel.dart';
+export '../widgets/coursepage.dart';
+export '../widgets/schoolsubscribed.dart';
+export '../widgets/settingpage.dart';
+export 'package:weteka/widgets/settingbody.dart';
 
 // Package Pub
 export 'package:smooth_page_indicator/smooth_page_indicator.dart';
