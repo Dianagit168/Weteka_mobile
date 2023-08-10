@@ -1,8 +1,7 @@
 import '../index.dart';
 
-PreferredSizeWidget wetekaAppBar(
-  BuildContext context,
-) {
+PreferredSizeWidget wetekaAppBar(BuildContext context,
+    {bool? isSearch = true}) {
   return AppBar(
     flexibleSpace: Container(
       margin: const EdgeInsets.only(right: 240, top: 10),
@@ -11,6 +10,7 @@ PreferredSizeWidget wetekaAppBar(
       ),
     ),
     actions: [
+      isSearch! ? Image.asset('assets/images/search.png') : Container(),
       Image.asset('assets/images/bell.png'),
       Image.asset('assets/images/scan.png'),
     ],

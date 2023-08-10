@@ -15,29 +15,25 @@ class BodyHomePage extends StatelessWidget {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children:const [
-          Explore(),
-            
-            ContinueCourse(),
-          
-            Ctegory(),
-                          
-            PopularCourse(),
-
-            Library(),
-       
-            Kaset(),
-
-            SizedBox(
-              height: 20,
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: const [
+              Explore(
+                hintText: 'Find your courses',
+              ),
+              ContinueCourse(),
+              Ctegory(),
+              PopularCourse(),
+              Library(),
+              Kaset(),
+              SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 }
-
