@@ -1,5 +1,8 @@
+import 'package:weteka/widgets/Profileowned.dart';
 import 'package:weteka/widgets/customtext.dart';
 import 'package:weteka/widgets/home.dart';
+import 'package:weteka/widgets/profileenroll.dart';
+import 'package:weteka/widgets/profilefollowing.dart';
 
 import '../index.dart';
 
@@ -45,15 +48,9 @@ class TapbarProfile extends StatelessWidget {
                 child: TabBarView(
                   children: [
                     HomeProfile(),
-                    CustomText(
-                      title: '1',
-                    ),
-                    CustomText(
-                      title: '1',
-                    ),
-                    CustomText(
-                      title: '1',
-                    ),
+                    ProfileOwned(),
+                    ProfileFollowing(),
+                    ProfileEnrollment(),
                   ],
                 ),
               ),

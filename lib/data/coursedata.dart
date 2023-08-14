@@ -37,3 +37,34 @@ List<Popularcourse> listcourse = [
     subTit: '2 hours ago',
   ),
 ];
+
+List<Popularcourse> ownedData = [
+  // Popularcourse(
+  //   img: '',
+  //   tit: 'Explore',
+  //   subimg: 'assets/images/Group 42.png',
+  //   tit2: 'Wetwka official',
+  //   subTit: '600 Followers',
+  // ),
+  Popularcourse(
+    img: '',
+    tit: 'Follow',
+    subimg: 'assets/images/yum.png',
+    tit2: 'Yum in a minute',
+    subTit: '600 Followers',
+  ),
+  Popularcourse(
+    img: '',
+    tit: 'Follow',
+    subimg: 'assets/images/wild life.png',
+    tit2: 'Wild life',
+    subTit: '600 Followers',
+  ),
+  Popularcourse(
+    img: '',
+    tit: 'Unfollow',
+    subimg: 'assets/images/smartinterior.png',
+    tit2: 'Smart interior',
+    subTit: '600 Followers',
+  ),
+];

@@ -12,7 +12,7 @@ class Course extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(right: padVal!),
+          padding: EdgeInsets.only(right: isTit! ? padVal! : 0),
           child: isTit!
               ? Text(
                   tit!,
