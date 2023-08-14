@@ -10,6 +10,8 @@ class ElevatedButtonCust extends StatelessWidget {
     this.w,
     this.circleBut,
     this.isColor = true,
+    this.color,
+    this.colorTit,
   }) : super(key: key);
   final String? tit;
   final double? sizfo;
@@ -17,6 +19,8 @@ class ElevatedButtonCust extends StatelessWidget {
   final double? w;
   final double? circleBut;
   final bool? isColor;
+  final Color? color;
+  final Color? colorTit;
   final void Function()? onNavigator;
 
   @override
@@ -24,9 +28,8 @@ class ElevatedButtonCust extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         minimumSize: Size(w!, h!),
-        primary: isColor!
-            ? const Color.fromARGB(255, 0, 102, 255)
-            : const Color.fromARGB(255, 247, 84, 111),
+        elevation: 0,
+        primary: isColor! ? const Color.fromARGB(255, 0, 102, 255) : color,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(circleBut!),
         ),
@@ -34,7 +37,10 @@ class ElevatedButtonCust extends StatelessWidget {
       onPressed: onNavigator,
       child: Text(
         tit!,
-        style: TextStyle(fontSize: sizfo),
+        style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: sizfo,
+            color: isColor! ? null : colorTit),
       ),
     );
   }

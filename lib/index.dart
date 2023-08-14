@@ -3,8 +3,10 @@ export 'package:flutter/material.dart';
 
 // Screen
 export 'package:weteka/screen/main_tap.dart';
+export 'package:weteka/screen/profileabout.dart';
 
 // Widget
+export '../widgets/profileaboutbody.dart';
 export 'package:weteka/widgets/forgotpass_body.dart';
 export '../widgets/page1.dart';
 export '../widgets/page2.dart';

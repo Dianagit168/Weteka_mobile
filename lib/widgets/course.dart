@@ -1,19 +1,22 @@
 import 'package:weteka/index.dart';
 
 class Course extends StatelessWidget {
-  const Course({Key? key, this.isTit = true}) : super(key: key);
+  const Course({Key? key, this.isTit = true, this.tit, this.padVal})
+      : super(key: key);
   final bool? isTit;
+  final String? tit;
+  final double? padVal;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(right: 322),
+          padding: EdgeInsets.only(right: padVal!),
           child: isTit!
-              ? const Text(
-                  'Course',
-                  style: TextStyle(
+              ? Text(
+                  tit!,
+                  style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 2, 28, 60)),
                 )

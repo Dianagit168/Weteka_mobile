@@ -8,7 +8,8 @@ class SettingPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        appBar: wetekaAppBar(context, isImg: false, title: 'Menu'),
+        appBar:
+            wetekaAppBar(context, isImg: false, title: 'Menu', isIcon: false),
         body: const SettingBody(),
       ),
     );

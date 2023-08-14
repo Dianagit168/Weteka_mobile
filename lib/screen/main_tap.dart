@@ -70,50 +70,6 @@ class MainTap extends StatelessWidget {
             ),
           ),
         ]),
-        // bottomNavigationBar:
-        //     BottomNavigationBar(
-        //     selectedItemColor: Colors.blue, items: [
-        //   BottomNavigationBarItem(
-        //     label: "",
-        //     icon: Icon(
-        //       Icons.video_collection_outlined,
-        //       size: 27,
-        //       color: Colors.black,
-        //     ),
-        //   ),
-        //   BottomNavigationBarItem(
-        //     label: "",
-        //     icon: Icon(
-        //       Icons.video_collection_outlined,
-        //       size: 27,
-        //       color: Colors.black,
-        //     ),
-        //   ),
-        //   BottomNavigationBarItem(
-        //     label: "",
-        //     icon: Icon(
-        //       Icons.video_collection_outlined,
-        //       size: 27,
-        //       color: Colors.black,
-        //     ),
-        //   ),
-        //   BottomNavigationBarItem(
-        //     label: "",
-        //     icon: Icon(
-        //       Icons.video_collection_outlined,
-        //       size: 27,
-        //       color: Colors.black,
-        //     ),
-        //   ),
-        //   BottomNavigationBarItem(
-        //     label: "",
-        //     icon: Icon(
-        //       Icons.video_collection_outlined,
-        //       size: 27,
-        //       color: Colors.black,
-        //     ),
-        //   )
-        // ]),
       ),
     );
   }

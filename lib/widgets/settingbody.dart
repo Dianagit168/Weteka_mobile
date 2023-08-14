@@ -84,6 +84,7 @@ class SettingBody extends StatelessWidget {
                   sizfo: 17,
                   circleBut: 10,
                   isColor: false,
+                  color: const Color.fromARGB(255, 247, 84, 111),
                   onNavigator: () {},
                 ),
               ),
