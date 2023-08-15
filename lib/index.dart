@@ -3,10 +3,11 @@ export 'package:flutter/material.dart';
 
 // Screen
 export 'package:weteka/screen/main_tap.dart';
-export 'package:weteka/screen/profileabout.dart';
+export 'package:weteka/screen/profile_about/profileabout.dart';
 
 // Widget
-export '../widgets/profileaboutbody.dart';
+
+export 'widgets/profile_about/profileaboutbody.dart';
 export 'package:weteka/widgets/forgotpass_body.dart';
 export '../widgets/page1.dart';
 export '../widgets/page2.dart';
@@ -26,6 +27,10 @@ export '../widgets/coursepage.dart';
 export '../widgets/schoolsubscribed.dart';
 export '../widgets/settingpage.dart';
 export 'package:weteka/widgets/settingbody.dart';
+export 'package:weteka/widgets/profile_about/Profileowned.dart';
+export 'package:weteka/widgets/profile_about/home.dart';
+export 'package:weteka/widgets/profile_about/profileenroll.dart';
+export 'package:weteka/widgets/profile_about/profilefollowing.dart';
 
 // Package Pub
 export 'package:smooth_page_indicator/smooth_page_indicator.dart';

@@ -1,6 +1,6 @@
 import 'package:weteka/index.dart';
 
-import 'package:weteka/widgets/profile_allinfo.dart';
+import 'package:weteka/widgets/profile_about/profile_allinfo.dart';
 
 class HomeProfile extends StatelessWidget {
   const HomeProfile({Key? key}) : super(key: key);

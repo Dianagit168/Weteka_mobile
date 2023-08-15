@@ -1,7 +1,5 @@
-import 'package:weteka/widgets/course.dart';
-
 import '../index.dart';
-import 'books.dart';
+
 import 'category.dart';
 import 'explore.dart';
 

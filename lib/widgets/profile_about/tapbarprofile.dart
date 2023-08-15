@@ -1,10 +1,6 @@
-import 'package:weteka/widgets/Profileowned.dart';
-import 'package:weteka/widgets/customtext.dart';
-import 'package:weteka/widgets/home.dart';
-import 'package:weteka/widgets/profileenroll.dart';
-import 'package:weteka/widgets/profilefollowing.dart';
+import 'package:flutter/gestures.dart';
 
-import '../index.dart';
+import '../../index.dart';
 
 class TapbarProfile extends StatelessWidget {
   const TapbarProfile({Key? key}) : super(key: key);
@@ -33,7 +29,7 @@ class TapbarProfile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                     color: const Color.fromARGB(76, 0, 102, 255),
                   ),
-                  indicatorColor: const Color.fromARGB(255, 0, 102, 255),
+                  labelStyle: const TextStyle(fontWeight: FontWeight.bold),
                   unselectedLabelColor: const Color.fromARGB(255, 2, 28, 60),
                   labelColor: const Color.fromARGB(255, 0, 102, 255),
                   tabs: const [

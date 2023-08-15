@@ -60,9 +60,10 @@ List<Popularcourse> ownedData = [
     tit2: 'Wild life',
     subTit: '600 Followers',
   ),
+
   Popularcourse(
     img: '',
-    tit: 'Unfollow',
+    tit: 'Follow',
     subimg: 'assets/images/smartinterior.png',
     tit2: 'Smart interior',
     subTit: '600 Followers',

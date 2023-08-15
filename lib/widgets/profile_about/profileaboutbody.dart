@@ -1,6 +1,6 @@
 import 'package:weteka/index.dart';
 
-import 'package:weteka/widgets/tapbarprofile.dart';
+import 'package:weteka/widgets/profile_about/tapbarprofile.dart';
 
 import 'cover&profile.dart';
 

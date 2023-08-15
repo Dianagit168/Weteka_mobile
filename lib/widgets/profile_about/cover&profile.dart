@@ -1,5 +1,5 @@
-import '../index.dart';
-import 'customtext.dart';
+import '../../index.dart';
+import '../customtext.dart';
 
 class CoverProfile extends StatelessWidget {
   const CoverProfile({
