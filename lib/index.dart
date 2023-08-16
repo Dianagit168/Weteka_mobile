@@ -6,7 +6,8 @@ export 'package:weteka/screen/main_tap.dart';
 export 'package:weteka/screen/profile_about/profileabout.dart';
 
 // Widget
-
+export 'package:weteka/widgets/progress/progressbody.dart';
+export 'package:weteka/widgets/progress/progressitem.dart';
 export 'widgets/profile_about/profileaboutbody.dart';
 export 'package:weteka/widgets/forgotpass_body.dart';
 export '../widgets/page1.dart';

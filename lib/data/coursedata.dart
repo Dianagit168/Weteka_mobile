@@ -1,4 +1,5 @@
 import '../index.dart';
+import '../model/progressmodel.dart';
 
 List<Popularcourse> listcourse = [
   Popularcourse(
@@ -67,5 +68,31 @@ List<Popularcourse> ownedData = [
     subimg: 'assets/images/smartinterior.png',
     tit2: 'Smart interior',
     subTit: '600 Followers',
+  ),
+];
+List<ProgressModel> progressData = [
+  ProgressModel(
+    taskbar: 'assets/images/Progressbar 75.png',
+    img: 'assets/images/weteka_port.png',
+    tit: 'How to use Weteka?',
+    subimg: 'assets/images/Group 42.png',
+    tit2: 'Wetwka official',
+    subTit: '2 hours ago',
+  ),
+  ProgressModel(
+    taskbar: 'assets/images/Progressbar 25.png',
+    img: 'assets/images/yum2.png',
+    tit: 'How to make the food!?',
+    subimg: 'assets/images/yum3.png',
+    tit2: 'Yum in a minute',
+    subTit: '2 hours ago',
+  ),
+  ProgressModel(
+    taskbar: 'assets/images/Progressbar 90.png',
+    img: 'assets/images/coding.png',
+    tit: 'Basic of web development',
+    subimg: 'assets/images/Group 42.png',
+    tit2: 'Coding with K9',
+    subTit: '2 hours ago',
   ),
 ];
