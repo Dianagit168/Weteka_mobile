@@ -1,9 +1,9 @@
 import 'package:weteka/index.dart';
 
-import 'package:weteka/widgets/profile_about/profile_allinfo.dart';
+import 'abouthometab.dart';
 
-class HomeProfile extends StatelessWidget {
-  const HomeProfile({Key? key}) : super(key: key);
+class HomeTab extends StatelessWidget {
+  const HomeTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class HomeProfile extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: const [
-            AllInformation(),
+            AboutHomeTab(),
             Course(
               tit: 'Owned Contents',
               padVal: 260,

@@ -32,6 +32,7 @@ class Course extends StatelessWidget {
         ),
         GridView.builder(
           shrinkWrap: true,
+          physics: const BouncingScrollPhysics(),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 1,
             // mainAxisSpacing: 15, //គម្លាតលើក្រោម

@@ -1,7 +1,7 @@
 import 'package:weteka/index.dart';
 
-class ProfileAbout extends StatelessWidget {
-  const ProfileAbout({Key? key}) : super(key: key);
+class School extends StatelessWidget {
+  const School({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,12 +11,8 @@ class ProfileAbout extends StatelessWidget {
         appBar: wetekaAppBar(
           context,
           isImg: false,
-          title: 'Menu',
         ),
-        body: const SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: ProfileAboutBody(),
-        ),
+        body: const SchoolBody(),
       ),
     );
   }

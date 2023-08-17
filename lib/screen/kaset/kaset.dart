@@ -1,7 +1,7 @@
 import 'package:weteka/index.dart';
 
-class ProgressItem extends StatelessWidget {
-  const ProgressItem({Key? key}) : super(key: key);
+class KasetScreen extends StatelessWidget {
+  const KasetScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class ProgressItem extends StatelessWidget {
           context,
           isImg: false,
         ),
-        body: ProgressBody(),
+        body: const KasetBody(),
       ),
     );
   }

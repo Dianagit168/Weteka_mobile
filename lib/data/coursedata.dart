@@ -96,3 +96,49 @@ List<ProgressModel> progressData = [
     subTit: '2 hours ago',
   ),
 ];
+List<Popularcourse> followschoolData = [
+  Popularcourse(
+    img: '',
+    tit: '',
+    subimg: 'assets/images/k9.png',
+    tit2: 'Coding with K9',
+    subTit: '600 Followers',
+  ),
+  Popularcourse(
+    img: '',
+    tit: '',
+    subimg: 'assets/images/Alien.png',
+    tit2: 'Hello world',
+    subTit: '600 Followers',
+  ),
+];
+List<Popularcourse> kasetListData = [
+  Popularcourse(
+    img: 'assets/images/weteka_port.png',
+    tit: 'How to use Weteka?',
+    subimg: 'assets/images/Group 42.png',
+    tit2: 'Wetwka official',
+    subTit: '2 hours ago',
+  ),
+  Popularcourse(
+    img: 'assets/images/Covid.png',
+    tit: 'How does covid-19 spread?',
+    subimg: 'assets/images/love_you.png',
+    tit2: 'We care',
+    subTit: '2 hours ago',
+  ),
+  Popularcourse(
+    img: 'assets/images/Min.png',
+    tit: 'The disaster of radioactive m...',
+    subimg: 'assets/images/Group 42.png',
+    tit2: 'Atomic',
+    subTit: '4 hours ago',
+  ),
+  Popularcourse(
+    img: 'assets/images/html2.png',
+    tit: 'How to use Weteka?',
+    subimg: 'assets/images/Ellipse 9.png',
+    tit2: 'Worldcomputy',
+    subTit: '2 hours ago',
+  ),
+];

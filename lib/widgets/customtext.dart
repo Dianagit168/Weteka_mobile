@@ -4,16 +4,21 @@ class CustomText extends StatelessWidget {
   const CustomText({
     Key? key,
     this.title,
+    this.isFontSize = true,
+    this.fontSize,
   }) : super(key: key);
   final String? title;
+  final bool? isFontSize;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title!,
-      style: const TextStyle(
+      style: TextStyle(
         fontWeight: FontWeight.bold,
-        color: Color.fromARGB(255, 2, 28, 60),
+        fontSize: isFontSize! ? null : fontSize,
+        color: const Color.fromARGB(255, 2, 28, 60),
       ),
     );
   }

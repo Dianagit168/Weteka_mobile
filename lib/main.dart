@@ -1,3 +1,5 @@
+import 'package:weteka/screen/school_home/school_home.dart';
+
 import 'index.dart';
 
 void main() {
@@ -14,7 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ProgressItem(),
+      // home: const KasetScreen(),
+      home: const SchoolHome(),
     );
   }
 }
