@@ -10,3 +10,8 @@ List<Person> chanel = [
   Person(img: 'assets/images/Ellipse 13.png', userName: 'Home de'),
   Person(img: 'assets/images/IMG_4404.jpg', userName: 'Inerior mo'),
 ];
+List<Person> gradeItem = [
+  Person(img: '9A', userName: 'Grade 9A'),
+  Person(img: '10A', userName: 'Grade 10A'),
+  Person(img: '9A', userName: 'Grade 9A'),
+];

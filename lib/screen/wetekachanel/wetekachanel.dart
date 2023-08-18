@@ -1,7 +1,9 @@
 import 'package:weteka/index.dart';
 
-class SchoolHome extends StatelessWidget {
-  const SchoolHome({Key? key}) : super(key: key);
+import '../../widgets/wetekachanelwidget/wetekachanelbody.dart';
+
+class WetekaChanel extends StatelessWidget {
+  const WetekaChanel({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class SchoolHome extends StatelessWidget {
           context,
           isImg: false,
         ),
-        body: const SchoolHomeBody(),
+        body: const WetekaChanelBody(),
       ),
     );
   }

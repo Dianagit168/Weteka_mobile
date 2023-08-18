@@ -18,7 +18,6 @@ class SchoolSubBody extends StatelessWidget {
               SubScribChanel(),
               Course(
                 isTit: false,
-                padVal: 322,
               ),
               SizedBox(
                 height: 20,

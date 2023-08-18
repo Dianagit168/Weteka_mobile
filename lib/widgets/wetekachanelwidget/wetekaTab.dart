@@ -1,8 +1,10 @@
-import '../../index.dart';
-import 'hometap.dart';
+import 'package:weteka/widgets/wetekachanelwidget/schoolcourse.dart';
 
-class TapbarHomeSchool extends StatelessWidget {
-  const TapbarHomeSchool({Key? key}) : super(key: key);
+import '../../index.dart';
+import 'homeschool.dart';
+
+class WetekaTab extends StatelessWidget {
+  const WetekaTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +44,8 @@ class TapbarHomeSchool extends StatelessWidget {
               const Expanded(
                 child: TabBarView(
                   children: [
-                    HomeTab(),
-                    ProfileOwned(),
+                    HomeSchool(),
+                    SchoolCourse(),
                     ProfileFollowing(),
                     ProfileEnrollment(),
                   ],

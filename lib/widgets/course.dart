@@ -1,32 +1,30 @@
 import 'package:weteka/index.dart';
 
 class Course extends StatelessWidget {
-  const Course({Key? key, this.isTit = true, this.tit, this.padVal})
+  const Course({Key? key, this.isTit = true, this.tit, this.islike = true})
       : super(key: key);
   final bool? isTit;
   final String? tit;
-  final double? padVal;
+  final bool? islike;
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: EdgeInsets.only(right: isTit! ? padVal! : 0),
-          child: isTit!
-              ? Text(
-                  tit!,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 2, 28, 60)),
-                )
-              : const Text(
-                  '',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 2, 28, 60)),
-                ),
-        ),
+        isTit!
+            ? Text(
+                tit!,
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 2, 28, 60)),
+              )
+            : const Text(
+                '',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 2, 28, 60)),
+              ),
         SizedBox(
           height: isTit! ? 15 : 0,
         ),
@@ -42,6 +40,7 @@ class Course extends StatelessWidget {
           itemCount: listcourse.length,
           itemBuilder: (context, index) {
             return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Card(
                   elevation: 0,
@@ -53,7 +52,7 @@ class Course extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 240, top: 3, bottom: 3),
+                  padding: const EdgeInsets.only(top: 3, bottom: 3),
                   child: Text(
                     "${listcourse[index].tit}",
                     style: const TextStyle(
@@ -99,13 +98,14 @@ class Course extends StatelessWidget {
                       Row(
                         children: [
                           Padding(
-                              padding: const EdgeInsets.only(right: 20),
-                              child: isTit!
-                                  ? Container()
-                                  : Image.asset('assets/images/like.png')),
-                          isTit!
-                              ? Container()
-                              : Image.asset('assets/images/dislike.png'),
+                            padding: const EdgeInsets.only(right: 20),
+                            child: islike!
+                                ? Image.asset('assets/images/like.png')
+                                : Container(),
+                          ),
+                          islike!
+                              ? Image.asset('assets/images/Dislike.png')
+                              : Container(),
                         ],
                       ),
                   ],

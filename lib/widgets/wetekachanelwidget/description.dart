@@ -14,6 +14,9 @@ class Description extends StatelessWidget {
           'Descriptions',
           style: TextStyle(color: Color.fromARGB(158, 2, 28, 60)),
         ),
+        SizedBox(
+          height: 7,
+        ),
         Text(
           'Weteka is a virtual platform for students, teachers, and professionals to share their knowledge with other students. View or create lessons for free, as well as set up your own school with ease.',
           strutStyle: StrutStyle(height: 1.5),

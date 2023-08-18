@@ -6,7 +6,9 @@ export 'package:weteka/screen/main_tap.dart';
 export 'package:weteka/screen/profile_about/profileabout.dart';
 export 'package:weteka/screen/kaset/kaset.dart';
 export 'package:weteka/screen/school/school.dart';
-export 'package:weteka/widgets/schoolhomewidget/schoolhomebody.dart';
+export 'package:weteka/widgets/wetekachanelwidget/wetekaTab.dart';
+
+export 'package:weteka/screen/wetekachanel/wetekachanel.dart';
 
 // Widget
 

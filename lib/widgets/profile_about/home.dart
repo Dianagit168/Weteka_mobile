@@ -15,7 +15,6 @@ class HomeProfile extends StatelessWidget {
             AllInformation(),
             Course(
               tit: 'Owned Contents',
-              padVal: 260,
               isTit: false,
             )
           ],

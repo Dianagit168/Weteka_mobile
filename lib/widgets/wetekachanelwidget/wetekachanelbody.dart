@@ -1,11 +1,10 @@
 import 'package:weteka/index.dart';
-import 'package:weteka/widgets/schoolhomewidget/subscreen.dart';
 
 import 'cover&profile.dart';
 import 'follow.dart';
 
-class SchoolHomeBody extends StatelessWidget {
-  const SchoolHomeBody({Key? key}) : super(key: key);
+class WetekaChanelBody extends StatelessWidget {
+  const WetekaChanelBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class SchoolHomeBody extends StatelessWidget {
         children: const [
           CoverAndProfile(),
           Follow(),
-          TapbarHomeSchool(),
+          WetekaTab(),
         ],
       ),
     );
