@@ -1,3 +1,5 @@
+import 'package:weteka/screen/singlepagecourse/singpagecourse.dart';
+
 import 'index.dart';
 
 void main() {
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: const KasetScreen(),
-      home: const WetekaChanel(),
+      home: const SinglePageCourse(),
     );
   }
 }

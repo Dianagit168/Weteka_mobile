@@ -1,4 +1,6 @@
 import 'package:weteka/widgets/wetekachanelwidget/schoolcourse.dart';
+import 'package:weteka/widgets/wetekachanelwidget/schoolmember.dart';
+import 'package:weteka/widgets/wetekachanelwidget/schoolroom.dart';
 
 import '../../index.dart';
 import 'homeschool.dart';
@@ -46,8 +48,8 @@ class WetekaTab extends StatelessWidget {
                   children: [
                     HomeSchool(),
                     SchoolCourse(),
-                    ProfileFollowing(),
-                    ProfileEnrollment(),
+                    SchoolRoom(),
+                    SchoolMember(),
                   ],
                 ),
               ),
