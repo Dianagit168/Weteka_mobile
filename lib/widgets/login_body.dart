@@ -93,8 +93,7 @@ class LoginBody extends StatelessWidget {
               height: 50,
               // margin: const EdgeInsets.only(right: 15),
               decoration: BoxDecoration(
-                border:
-                    Border.all(color: const Color.fromARGB(255, 0, 115, 255)),
+                border: Border.all(color: const Color.fromARGB(255, 0, 115, 255)),
                 borderRadius: const BorderRadius.all(
                   Radius.circular(32),
                 ),

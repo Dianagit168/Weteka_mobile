@@ -3,7 +3,7 @@ export 'package:flutter/material.dart';
 
 // Screen
 export 'package:weteka/screen/main_tap.dart';
-export 'package:weteka/screen/profile_about/profileabout.dart';
+export 'package:weteka/screen/profile_about/profile_about.dart';
 export 'package:weteka/screen/kaset/kaset.dart';
 export 'package:weteka/screen/school/school.dart';
 export 'package:weteka/widgets/wetekachanelwidget/wetekaTab.dart';
@@ -12,9 +12,12 @@ export 'package:weteka/screen/wetekachanel/wetekachanel.dart';
 
 // Widget
 
+
+export 'package:weteka/widgets/profile_about/cover&profile.dart';
+export 'package:weteka/widgets/profile_about/tapbarprofile.dart';
+
 export '../../widgets/kasetwidget/kasetbody.dart';
 export 'package:weteka/widgets/schoolwidget/schoolbody.dart';
-export 'widgets/profile_about/profileaboutbody.dart';
 export 'package:weteka/widgets/forgotpass_body.dart';
 export '../widgets/page1.dart';
 export '../widgets/page2.dart';
