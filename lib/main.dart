@@ -1,4 +1,11 @@
+import 'package:weteka/screen/forgotpassword.dart';
+import 'package:weteka/screen/progress/progress_screen.dart';
+import 'package:weteka/screen/register.dart';
+import 'package:weteka/screen/renewpass.dart';
+import 'package:weteka/screen/school/school_screen.dart';
 import 'package:weteka/screen/singlepagecourse/singpagecourse.dart';
+import 'package:weteka/screen/verifycode.dart';
+import 'package:weteka/screen/wetekachanel/wetekachanel.dart';
 
 import 'index.dart';
 
@@ -16,7 +23,22 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: const KasetScreen(),
+      //home: const FirstLoading(),
+
+      //home: const MainPageView(),
+      // home: const Login(),
+      // home: const Register(),
+      // home: const ForgotPassword(),
+      // home: const VerifyCode(),
+      // home: const RenewPassword(),
+      //home: const MainTap(),
+
+      //home: const MainTap(),
+      //home: const ProfileAbout(),
+      // home: ProgressScreen(),
+      //home: SchoolScreen(),
+      //home: KasetScreen(),
+      // home: const WetekaChanel(),
       home: const SinglePageCourse(),
     );
   }

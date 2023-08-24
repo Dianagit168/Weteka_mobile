@@ -13,17 +13,11 @@ class Course extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         isTit!
-            ? Text(
-                tit!,
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 2, 28, 60)),
+            ? CustomText(
+                title: tit,
               )
-            : const Text(
-                '',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 2, 28, 60)),
+            : const CustomText(
+                title: '',
               ),
         SizedBox(
           height: isTit! ? 15 : 0,
@@ -68,28 +62,21 @@ class Course extends StatelessWidget {
                       width: 10,
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            right: 12,
-                          ),
-                          child: Text(
-                            "${listcourse[index].tit2}",
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 11,
-                                color: Color.fromARGB(155, 2, 28, 60)),
-                          ),
+                        Text(
+                          "${listcourse[index].tit2}",
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 11,
+                              color: Color.fromARGB(155, 2, 28, 60)),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 38),
-                          child: Text(
-                            "${listcourse[index].subTit}",
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 9,
-                                color: Color.fromARGB(67, 2, 28, 60)),
-                          ),
+                        Text(
+                          "${listcourse[index].subTit}",
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 9,
+                              color: Color.fromARGB(67, 2, 28, 60)),
                         ),
                       ],
                     ),

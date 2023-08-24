@@ -9,22 +9,17 @@ class Ctegory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-      const SizedBox(
-                  height: 15,
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 300, top: 8),
-                  child: Text(
-                    'Categories',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(255, 2, 28, 60)),
-                  ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
+        const SizedBox(
+          height: 15,
+        ),
+        const CustomText(
+          title: 'Categories',
+        ),
+        const SizedBox(
+          height: 15,
+        ),
         SizedBox(
           height: 35,
           child: ListView.builder(
@@ -54,10 +49,9 @@ class Ctegory extends StatelessWidget {
           ),
         ),
         const SizedBox(
-                  height: 15,
-                ),
+          height: 15,
+        ),
       ],
     );
   }
 }
-

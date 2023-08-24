@@ -1,12 +1,11 @@
 import 'package:weteka/index.dart';
-import 'package:weteka/screen/wetekachanel/schoolcourse.dart';
-import 'package:weteka/screen/wetekachanel/schoolmember.dart';
-import 'package:weteka/screen/wetekachanel/schoolroom.dart';
+import 'package:weteka/screen/profile_about/home_profile.dart';
+import 'package:weteka/screen/profile_about/profile_enrollment.dart';
+import 'package:weteka/screen/profile_about/profile_following.dart';
+import 'package:weteka/screen/profile_about/profile_owned.dart';
 
-import 'homeschool.dart';
-
-class WetekaChanel extends StatelessWidget {
-  const WetekaChanel({Key? key}) : super(key: key);
+class ProfileAbout extends StatelessWidget {
+  const ProfileAbout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +15,14 @@ class WetekaChanel extends StatelessWidget {
         appBar: wetekaAppBar(
           context,
           isImg: false,
+          title: 'Menu',
         ),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
               coverAndProfile(context),
-              follow(context),
-              wetekaTab(context),
+              tapProfile(context),
             ],
           ),
         ),
@@ -37,40 +36,15 @@ Widget coverAndProfile(BuildContext context) {
     children: [
       SizedBox(
         width: MediaQuery.of(context).size.width,
-        height: 300,
-        child: Column(
-          children: [
-            Image.asset(
-              'assets/images/weteka_port.png',
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 25, left: 18),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const CustomText(
-                    title: 'Weteka Official',
-                    isFontSize: false,
-                    fontSize: 17,
-                    color: Color.fromARGB(255, 2, 28, 60),
-                  ),
-                  const SizedBox(
-                    width: 7,
-                  ),
-                  Image.asset(
-                    'assets/images/verified.png',
-                  ),
-                ],
-              ),
-            )
-          ],
+        height: 250,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 30),
+          child: Image.asset('assets/images/Rectangle 30.png'),
         ),
       ),
       Positioned(
         top: 120,
-        left: 20,
+        left: 30,
         child: Column(
           children: [
             Container(
@@ -81,10 +55,16 @@ Widget coverAndProfile(BuildContext context) {
                 color: Color.fromARGB(255, 0, 115, 255),
               ),
               child: Image.asset(
-                'assets/images/Group 42.png',
+                'assets/images/Ellipse 4.png',
                 fit: BoxFit.cover,
               ),
             ),
+            const Padding(
+              padding: EdgeInsets.only(top: 7),
+              child: CustomText(
+                title: 'Diana',
+              ),
+            )
           ],
         ),
       )
@@ -92,26 +72,11 @@ Widget coverAndProfile(BuildContext context) {
   );
 }
 
-Widget follow(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 18, right: 18, bottom: 5),
-    child: ElevatedButtonCust(
-      tit: 'Follow',
-      w: 253700,
-      h: 40,
-      sizfo: 15,
-      circleBut: 10,
-      color: const Color.fromARGB(99, 0, 115, 255),
-      onNavigator: () {},
-    ),
-  );
-}
-
-Widget wetekaTab(BuildContext context) {
+Widget tapProfile(BuildContext context) {
   return Padding(
     padding: const EdgeInsets.only(
-      left: 18,
-      right: 18,
+      left: 20,
+      right: 20,
       top: 8,
     ),
     child: SizedBox(
@@ -135,19 +100,19 @@ Widget wetekaTab(BuildContext context) {
                 labelColor: const Color.fromARGB(255, 0, 102, 255),
                 tabs: const [
                   Text('Home'),
-                  Text('Courses'),
-                  Text('Room'),
-                  Text('Members'),
+                  Text('Owned'),
+                  Text('Following'),
+                  Text('Enrollment'),
                 ],
               ),
             ),
             const Expanded(
               child: TabBarView(
                 children: [
-                  HomeSchool(),
-                  SchoolCourse(),
-                  SchoolRoom(),
-                  SchoolMember(),
+                  HomeProfile(),
+                  ProfileOwned(),
+                  ProfileFollowing(),
+                  ProfileEnrollment(),
                 ],
               ),
             ),

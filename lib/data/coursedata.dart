@@ -142,3 +142,84 @@ List<Popularcourse> kasetListData = [
     subTit: '2 hours ago',
   ),
 ];
+List<Popularcourse> interestedData = [
+  Popularcourse(
+    img: 'assets/images/fav.png',
+    tit: 'Like',
+    subimg: 'assets/images/k9.png',
+    tit2: 'Coding with K9',
+    subTit: '600 Followers',
+  ),
+  Popularcourse(
+    img: 'assets/images/comment.png',
+    tit: 'Comment',
+    subimg: 'assets/images/Alien.png',
+    tit2: 'Hello world',
+    subTit: '600 Followers',
+  ),
+  Popularcourse(
+    img: 'assets/images/forward.png',
+    tit: 'Share',
+    subimg: 'assets/images/k9.png',
+    tit2: 'Coding with K9',
+    subTit: '600 Followers',
+  ),
+  Popularcourse(
+    img: 'assets/images/Stare.png',
+    tit: 'Star',
+    subimg: 'assets/images/Alien.png',
+    tit2: 'Hello world',
+    subTit: '600 Followers',
+  ),
+];
+List<Popularcourse> listVideoData = [
+  Popularcourse(
+    img: 'assets/images/pause.png',
+    tit: 'The first step of using Weteka!',
+    subimg: 'assets/images/k9.png',
+    tit2: 'Chapter 1',
+    subTit: 'Lession 1',
+  ),
+  Popularcourse(
+    img: 'assets/images/play.png',
+    tit: 'The first step of using Weteka!',
+    subimg: 'assets/images/Alien.png',
+    tit2: 'Chapter 1',
+    subTit: 'Lession 2',
+  ),
+  Popularcourse(
+    img: 'assets/images/play.png',
+    tit: 'The first step of using Weteka!',
+    subimg: 'assets/images/k9.png',
+    tit2: 'Chapter 1',
+    subTit: 'Lession 2',
+  ),
+  Popularcourse(
+    img: 'assets/images/play.png',
+    tit: 'The first step of using Weteka!',
+    subimg: 'assets/images/Alien.png',
+    tit2: 'Chapter 1',
+    subTit: 'Lession 2',
+  ),
+  Popularcourse(
+    img: 'assets/images/play.png',
+    tit: 'The first step of using Weteka!',
+    subimg: 'assets/images/Alien.png',
+    tit2: 'Chapter 1',
+    subTit: 'Lession 2',
+  ),
+  Popularcourse(
+    img: 'assets/images/play.png',
+    tit: 'The first step of using Weteka!',
+    subimg: 'assets/images/k9.png',
+    tit2: 'Chapter 1',
+    subTit: 'Lession 2',
+  ),
+  Popularcourse(
+    img: 'assets/images/play.png',
+    tit: 'The first step of using Weteka!',
+    subimg: 'assets/images/Alien.png',
+    tit2: 'Chapter 1',
+    subTit: 'Lession 2',
+  ),
+];

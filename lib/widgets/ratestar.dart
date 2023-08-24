@@ -1,5 +1,3 @@
-
-
 import '../index.dart';
 
 class RateStar extends StatelessWidget {
@@ -8,10 +6,11 @@ class RateStar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 3,right: 3,top: 3,bottom: 4),
-    child: isBlue!? Image.asset('assets/images/Star_blue.png'):Image.asset('assets/images/Star_grey.png'),
-  );
-    
+    return Padding(
+      padding: const EdgeInsets.only(right: 5, top: 4, bottom: 5),
+      child: isBlue!
+          ? Image.asset('assets/images/Star_blue.png')
+          : Image.asset('assets/images/Star_grey.png'),
+    );
   }
 }

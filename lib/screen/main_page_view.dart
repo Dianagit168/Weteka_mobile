@@ -1,3 +1,5 @@
+import 'package:weteka/widgets/chooselang.dart';
+
 import '../index.dart';
 
 class MainPageView extends StatefulWidget {
@@ -20,9 +22,9 @@ class _MainPageViewState extends State<MainPageView> {
             child: PageView(
               controller: _controller,
               children: [
-                const Page1(),
-                const Page2(),
-                Page3(),
+                getStarted1(context),
+                getStarted2(context),
+                getStarted3(context),
               ],
             ),
           ),
@@ -48,29 +50,145 @@ class _MainPageViewState extends State<MainPageView> {
   }
 }
 
-// body: SafeArea(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             SizedBox(
-//               height: 500,
-//               width: double.infinity,
-//               //color: Colors.amber,
-//               child: PageView.builder(
-//                 itemCount: listDataPage.length,
-//                 itemBuilder: (context, index) {
-//                   return Column(
-//                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                     children: [
-//                       Image.asset('${listDataPage[index].img}'),
-//                       Text('${listDataPage[index].tit}'),
-//                       Text('${listDataPage[index].subTit}'),
-//                       Text('${listDataPage[index].subTit2}'),
-//                     ],
-//                   );
-//                 },
-//               ),
-//             )
-//           ],
-//         ),
-//       ),
+Widget getStarted1(BuildContext context) {
+  return Scaffold(
+    body: SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.only(left: 8, right: 8, top: 140),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/images/Group 5.png'),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Welcome',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Color.fromARGB(255, 0, 115, 255)),
+              ),
+            ),
+            const Text(
+              'We’re happy to see you here!',
+              style: TextStyle(
+                  fontSize: 17, color: Color.fromARGB(184, 136, 182, 238)),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 6, left: 10, right: 10),
+              child: Text(
+                'Lorem ipsum dolor sit amet consectetur. Enim massa ut pellentesque tincidunt laoreet quis quam. Rhoncus cursus neque lectus at.',
+                strutStyle: StrutStyle(height: 1.5),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 14, color: Color.fromARGB(95, 0, 115, 255)),
+              ),
+            ),
+            const Spacer(),
+            ElevatedButtonCust(
+              tit: 'Get Started',
+              w: 365,
+              h: 45,
+              sizfo: 17,
+              circleBut: 16,
+              onNavigator: () {},
+            )
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
+Widget getStarted2(BuildContext context) {
+  return Scaffold(
+    body: SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.only(left: 8, right: 8, top: 140),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/images/roket.png'),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Who we are',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Color.fromARGB(255, 0, 115, 255)),
+              ),
+            ),
+            const Text(
+              'Building the tools for our next generation!',
+              style: TextStyle(
+                  fontSize: 17, color: Color.fromARGB(184, 136, 182, 238)),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 6, left: 10, right: 10),
+              child: Text(
+                'Lorem ipsum dolor sit amet consectetur. Enim massa ut pellentesque tincidunt laoreet quis quam. Rhoncus cursus neque lectus at.',
+                strutStyle: StrutStyle(height: 1.5),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 14, color: Color.fromARGB(95, 0, 115, 255)),
+              ),
+            ),
+            const Spacer(),
+            ElevatedButtonCust(
+              tit: 'Next',
+              w: 365,
+              h: 45,
+              sizfo: 17,
+              circleBut: 16,
+              onNavigator: () {},
+            )
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
+Widget getStarted3(BuildContext context) {
+  return Scaffold(
+    body: SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.only(left: 24, right: 8, top: 140),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/images/Vectary texture.png'),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Choose',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Color.fromARGB(255, 0, 115, 255)),
+              ),
+            ),
+            const Text(
+              'Your language!',
+              style: TextStyle(
+                  fontSize: 17, color: Color.fromARGB(184, 136, 182, 238)),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 6, left: 10, right: 10),
+              child: Text(
+                'What language would you like to see?',
+                strutStyle: StrutStyle(height: 1.5),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 14, color: Color.fromARGB(95, 0, 115, 255)),
+              ),
+            ),
+            const Spacer(),
+            const ChooseLanguage(),
+          ],
+        ),
+      ),
+    ),
+  );
+}
