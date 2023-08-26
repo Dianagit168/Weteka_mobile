@@ -223,3 +223,25 @@ List<Popularcourse> listVideoData = [
     subTit: 'Lession 2',
   ),
 ];
+List<Popularcourse> singleBookData = [
+  Popularcourse(
+    img: 'assets/images/ratestar.png',
+    tit: '4.5',
+    subimg: '',
+    tit2: '',
+    subTit: 'Rating',
+  ),
+  Popularcourse(
+    img: 'assets/images/book-open.png',
+    tit: '60',
+    subimg: '',
+    tit2: '',
+    subTit: 'Reading',
+  ),
+  Popularcourse(
+      img: 'assets/images/saveicon.png',
+      tit: '12',
+      subimg: '',
+      tit2: '',
+      subTit: 'Downloaded'),
+];

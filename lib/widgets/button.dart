@@ -12,13 +12,17 @@ class ElevatedButtonCust extends StatelessWidget {
     this.isColor = true,
     this.color,
     this.colorTit,
+    this.haveImg = false,
+    this.img,
   }) : super(key: key);
   final String? tit;
+  final String? img;
   final double? sizfo;
   final double? h;
   final double? w;
   final double? circleBut;
   final bool? isColor;
+  final bool? haveImg;
   final Color? color;
   final Color? colorTit;
   final void Function()? onNavigator;
@@ -35,12 +39,21 @@ class ElevatedButtonCust extends StatelessWidget {
         ),
       ),
       onPressed: onNavigator,
-      child: Text(
-        tit!,
-        style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: sizfo,
-            color: isColor! ? null : colorTit),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          haveImg! ? Image.asset(img!) : const Text(''),
+          SizedBox(
+            width: 10,
+          ),
+          Text(
+            tit!,
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: sizfo,
+                color: isColor! ? null : colorTit),
+          ),
+        ],
       ),
     );
   }

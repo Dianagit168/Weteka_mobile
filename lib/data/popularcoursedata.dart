@@ -16,7 +16,7 @@ List<Popularcourse> listPopularCourse = [
     subTit: '1.2k students',
   ),
   Popularcourse(
-    img: 'assets/images/weteka_backdrop 1.png',
+    img: 'assets/images/weteka_backdrop 1(4).png',
     tit: 'How to use Weteka',
     subimg: 'assets/images/Group 42.png',
     tit2: 'Wetwka official',

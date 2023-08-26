@@ -20,10 +20,14 @@ class HomeScreen extends StatelessWidget {
                   const Explore(
                     content: 'Find your courses',
                   ),
+
+                  // Popular Course
                   continueCourse(context),
                   const Ctegory(),
                   popularContent(context,
                       title: 'Popular Course', isSeeAll: false),
+
+                  // Library
                   library(context),
                   popularContent(context, title: 'Kaset'),
                   const SizedBox(

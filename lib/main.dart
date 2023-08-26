@@ -3,6 +3,9 @@ import 'package:weteka/screen/progress/progress_screen.dart';
 import 'package:weteka/screen/register.dart';
 import 'package:weteka/screen/renewpass.dart';
 import 'package:weteka/screen/school/school_screen.dart';
+import 'package:weteka/screen/singlepage_book/singlepage_book.dart';
+import 'package:weteka/screen/singlepage_book_resding/singlepage_book_resding.dart';
+import 'package:weteka/screen/singlepage_kaset/singlepage_kaset.dart';
 import 'package:weteka/screen/singlepagecourse/singpagecourse.dart';
 import 'package:weteka/screen/verifycode.dart';
 import 'package:weteka/screen/wetekachanel/wetekachanel.dart';
@@ -31,15 +34,17 @@ class MyApp extends StatelessWidget {
       // home: const ForgotPassword(),
       // home: const VerifyCode(),
       // home: const RenewPassword(),
-      //home: const MainTap(),
 
-      //home: const MainTap(),
+      // home: const MainTap(),
       //home: const ProfileAbout(),
       // home: ProgressScreen(),
       //home: SchoolScreen(),
       //home: KasetScreen(),
       // home: const WetekaChanel(),
-      home: const SinglePageCourse(),
+      // home: const SinglePageCourse(),
+      //home: SinglePageBook(),
+      // home: SinglePageBookReading(),
+      home: SinglePageLKaset(),
     );
   }
 }
