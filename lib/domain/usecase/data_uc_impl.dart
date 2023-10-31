@@ -11,7 +11,7 @@ class FetchDataUcImpl {
     // print('Lol ${graphQLApi.fetchData()}}');
     character.value = await graphQLApi.fetchData();
 
-    print(character.value.length);
+    print(character.value);
     
     
   }

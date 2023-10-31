@@ -34,7 +34,6 @@ class GraphQLApi {
                       fullname
                       avatar
                     }
-
                     points {
                       id
                     }
