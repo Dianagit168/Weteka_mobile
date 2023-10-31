@@ -34,6 +34,7 @@ export 'package:weteka/widgets/course.dart';
 
 // Package Pub
 export 'package:smooth_page_indicator/smooth_page_indicator.dart';
+export 'package:lucide_icons/lucide_icons.dart';
 
 // Model
 export '../model/pagemodel.dart';

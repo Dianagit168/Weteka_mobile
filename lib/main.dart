@@ -1,6 +1,5 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:weteka/presentation/screen/splash_screen.dart';
 
 import 'index.dart';
 

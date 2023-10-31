@@ -1,7 +1,6 @@
-import 'package:lucide_icons/lucide_icons.dart';
-import 'package:weteka/data/popularcoursedata.dart';
 import 'package:weteka/domain/usecase/data_uc_impl.dart';
 import 'package:weteka/index.dart';
+import 'package:weteka/presentation/detail_popular_course_screen.dart';
 import 'package:weteka/presentation/screen/progress/progress_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -168,103 +167,120 @@ Widget popularContent(BuildContext context, FetchDataUcImpl fetchDataUcImpl,
                 shrinkWrap: true,
                 itemCount: fetchCourse.length,
                 itemBuilder: (context, index) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(right: 10),
-                        width: 170,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
-                        ),
-                        child: Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          child: Image.network(
-                            fetchCourse[index]["thumbnail"],
-                            height: 100,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 7,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 50),
-                        child: Text(
-                          fetchCourse[index]["title"],
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                              color: Color.fromARGB(216, 2, 28, 60)),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 50, top: 10),
-                        child: Row(
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 16),
+                    child: InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailPopularCourseScreen(
+                              courseDetail: fetchCourse,
+                              index: index,
+                            ),
+                          )),
+                      child: Container(
+                        color: Colors.amber,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(32),
-                                  ),
-                                  color: Colors.amber,
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage(
-                                      fetchCourse[index]["organization"]
-                                          ["logo"],
-                                    ),
-                                  )),
+                            Card(
+                              clipBehavior: Clip.antiAliasWithSaveLayer,
+                              child: Image.network(
+                                fetchCourse[index]["thumbnail"],
+                                height: 100,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                             const SizedBox(
-                              width: 10,
+                              height: 7,
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      fetchCourse[index]["organization"]
-                                          ["name"],
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 11,
-                                          color:
-                                              Color.fromARGB(155, 2, 28, 60),),
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    if (fetchCourse[index]["organization"]
-                                            ["isVerify"] == true)
-                                      const Icon(
-                                        LucideIcons.badgeCheck,
-                                        color: Colors.blue,
-                                        size: 15,
-                                      )
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 25),
-                                  child: Text(
-                                    fetchCourse[index]["views"].toString(),
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 9,
-                                        color: Color.fromARGB(67, 2, 28, 60)),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 50),
+                              child: Text(
+                                fetchCourse[index]["title"],
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12,
+                                    color: Color.fromARGB(216, 2, 28, 60)),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(right: 50, top: 10),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    height: 40,
+                                    width: 40,
+                                    decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.all(
+                                          Radius.circular(32),
+                                        ),
+                                        color: Colors.amber,
+                                        image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(
+                                            fetchCourse[index]["organization"]
+                                                ["logo"],
+                                          ),
+                                        )),
                                   ),
-                                ),
-                              ],
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            fetchCourse[index]["organization"]
+                                                ["name"],
+                                            style: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 11,
+                                              color: Color.fromARGB(
+                                                  155, 2, 28, 60),
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            width: 10,
+                                          ),
+                                          if (fetchCourse[index]["organization"]
+                                                  ["isVerify"] ==
+                                              true)
+                                            const Icon(
+                                              LucideIcons.badgeCheck,
+                                              color: Colors.blue,
+                                              size: 15,
+                                            )
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 25),
+                                        child: Text(
+                                          fetchCourse[index]["views"]
+                                              .toString(),
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 9,
+                                              color: Color.fromARGB(
+                                                  67, 2, 28, 60)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
                       ),
-                    ],
+                    ),
                   );
                 },
               );
