@@ -1,6 +1,5 @@
-import 'package:weteka/widgets/chooselang.dart';
-
-import '../index.dart';
+import 'package:weteka/index.dart';
+import 'package:weteka/presentation/screen/utils/app_colors.dart';
 
 class MainPageView extends StatefulWidget {
   const MainPageView({Key? key}) : super(key: key);
@@ -59,14 +58,14 @@ Widget getStarted1(BuildContext context) {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/images/Group 5.png'),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Welcome',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
-                    color: Color.fromARGB(255, 0, 115, 255)),
+                    color: hexaCodeToColor(AppColor.primaryColor)),
               ),
             ),
             const Text(
@@ -92,6 +91,9 @@ Widget getStarted1(BuildContext context) {
               sizfo: 17,
               circleBut: 16,
               onNavigator: () {},
+            ),
+            const SizedBox(
+              height: 10,
             )
           ],
         ),
@@ -142,6 +144,9 @@ Widget getStarted2(BuildContext context) {
               sizfo: 17,
               circleBut: 16,
               onNavigator: () {},
+            ),
+            const SizedBox(
+              height: 10,
             )
           ],
         ),
@@ -185,7 +190,23 @@ Widget getStarted3(BuildContext context) {
               ),
             ),
             const Spacer(),
-            const ChooseLanguage(),
+            ElevatedButtonCust(
+              tit: 'English',
+              w: 350,
+              h: 45,
+              sizfo: 17,
+              circleBut: 16,
+              onNavigator: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Login(),
+                    ));
+              },
+            ),
+            const SizedBox(
+              height: 10,
+            )
           ],
         ),
       ),

@@ -21,13 +21,13 @@ class MainTap extends StatelessWidget {
 }
 
 Widget allScreen(BuildContext context) {
-  return const TabBarView(
+  return  TabBarView(
     children: [
       HomeScreen(),
-      LibraryScreen(),
-      CourseScreen(),
-      SchoolSubscribedScreen(),
-      SettingScreen(),
+      const LibraryScreen(),
+      const CourseScreen(),
+      const SchoolSubscribedScreen(),
+      const SettingScreen(),
     ],
   );
 }

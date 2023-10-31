@@ -9,14 +9,14 @@ class CourseScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         appBar: wetekaAppBar(context, isSearch: false),
-        body: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
+        body: const SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           child: SafeArea(
               child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(20.0),
               child: Column(
-                children: const [
+                children: [
                   Explore(
                     content: 'Find your course',
                   ),

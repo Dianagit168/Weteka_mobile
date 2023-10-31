@@ -1,6 +1,6 @@
 import 'package:weteka/widgets/input_info.dart';
 
-import '../index.dart';
+import '../../index.dart';
 
 class RenewPassword extends StatelessWidget {
   const RenewPassword({Key? key}) : super(key: key);

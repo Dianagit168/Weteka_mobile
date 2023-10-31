@@ -1,3 +1,5 @@
+import 'package:weteka/presentation/screen/utils/app_colors.dart';
+
 import '../index.dart';
 
 class ElevatedButtonCust extends StatelessWidget {
@@ -33,7 +35,7 @@ class ElevatedButtonCust extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         minimumSize: Size(w!, h!),
         elevation: 0,
-        primary: isColor! ? const Color.fromARGB(255, 0, 102, 255) : color,
+        primary: isColor! ? hexaCodeToColor(AppColor.primaryColor) : color,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(circleBut!),
         ),
@@ -43,7 +45,7 @@ class ElevatedButtonCust extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           haveImg! ? Image.asset(img!) : const Text(''),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
           Text(

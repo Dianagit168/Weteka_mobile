@@ -1,4 +1,4 @@
-import '../../index.dart';
+import '../../../index.dart';
 
 class SchoolCourse extends StatelessWidget {
   const SchoolCourse({

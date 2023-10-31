@@ -1,6 +1,6 @@
 import 'package:weteka/index.dart';
 
-import '../../data/subsribchanel.dart';
+import '../../../data/subsribchanel.dart';
 
 class SchoolMember extends StatelessWidget {
   const SchoolMember({Key? key}) : super(key: key);

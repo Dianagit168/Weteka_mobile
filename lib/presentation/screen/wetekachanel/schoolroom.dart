@@ -1,5 +1,5 @@
-import '../../data/subsribchanel.dart';
-import '../../index.dart';
+import '../../../data/subsribchanel.dart';
+import '../../../index.dart';
 
 class SchoolRoom extends StatelessWidget {
   const SchoolRoom({Key? key}) : super(key: key);

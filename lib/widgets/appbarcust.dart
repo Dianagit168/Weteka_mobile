@@ -9,7 +9,9 @@ PreferredSizeWidget appBar(
         Icons.arrow_back,
         color: Color.fromARGB(184, 136, 182, 238),
       ),
-      onPressed: () {},
+      onPressed: () {
+        //Navigator.of(context).pop();
+      },
     ),
     backgroundColor: Colors.white10,
     elevation: 0,

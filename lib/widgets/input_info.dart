@@ -1,3 +1,5 @@
+import 'package:weteka/presentation/screen/utils/app_colors.dart';
+
 import '../index.dart';
 
 class InputInformation extends StatelessWidget {
@@ -25,9 +27,8 @@ class InputInformation extends StatelessWidget {
             children: [
               Text(
                 tit!,
-                style: const TextStyle(
-                  color: Color.fromARGB(184, 136, 182, 238),
-                ),
+                style:
+                    TextStyle(color: hexaCodeToColor(AppColor.primaryColor30)),
               ),
               const SizedBox(
                 width: 3,
@@ -48,10 +49,11 @@ class InputInformation extends StatelessWidget {
           height: 45,
           margin: const EdgeInsets.only(right: 10),
           decoration: BoxDecoration(
-              border: Border.all(color: const Color.fromARGB(255, 0, 115, 255)),
+              border:
+                  Border.all(color: hexaCodeToColor(AppColor.primaryColor1)),
               borderRadius: const BorderRadius.all(Radius.circular(16))),
           child: TextField(
-            cursorColor: const Color.fromARGB(255, 0, 115, 255),
+            cursorColor: hexaCodeToColor(AppColor.primaryColor1),
             style: const TextStyle(
               fontSize: 17,
             ),

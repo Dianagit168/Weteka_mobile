@@ -1,6 +1,6 @@
 import 'package:weteka/widgets/input_info.dart';
 
-import '../index.dart';
+import '../../index.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({Key? key}) : super(key: key);

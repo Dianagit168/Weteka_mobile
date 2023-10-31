@@ -1,7 +1,7 @@
 import 'package:weteka/index.dart';
-import 'package:weteka/screen/wetekachanel/schoolcourse.dart';
-import 'package:weteka/screen/wetekachanel/schoolmember.dart';
-import 'package:weteka/screen/wetekachanel/schoolroom.dart';
+import 'package:weteka/presentation/screen/wetekachanel/schoolcourse.dart';
+import 'package:weteka/presentation/screen/wetekachanel/schoolmember.dart';
+import 'package:weteka/presentation/screen/wetekachanel/schoolroom.dart';
 
 import 'homeschool.dart';
 

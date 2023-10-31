@@ -1,6 +1,6 @@
 import 'package:weteka/widgets/boxpin.dart';
 
-import '../index.dart';
+import '../../index.dart';
 
 class VerifyCode extends StatelessWidget {
   const VerifyCode({Key? key}) : super(key: key);

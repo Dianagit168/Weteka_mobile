@@ -1,4 +1,4 @@
-import '../index.dart';
+import '../../index.dart';
 
 class FirstLoading extends StatelessWidget {
   const FirstLoading({Key? key}) : super(key: key);

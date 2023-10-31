@@ -1,8 +1,8 @@
 import 'package:weteka/index.dart';
-import 'package:weteka/screen/profile_about/home_profile.dart';
-import 'package:weteka/screen/profile_about/profile_enrollment.dart';
-import 'package:weteka/screen/profile_about/profile_following.dart';
-import 'package:weteka/screen/profile_about/profile_owned.dart';
+import 'package:weteka/presentation/screen/profile_about/home_profile.dart';
+import 'package:weteka/presentation/screen/profile_about/profile_enrollment.dart';
+import 'package:weteka/presentation/screen/profile_about/profile_following.dart';
+import 'package:weteka/presentation/screen/profile_about/profile_owned.dart';
 
 class ProfileAbout extends StatelessWidget {
   const ProfileAbout({Key? key}) : super(key: key);

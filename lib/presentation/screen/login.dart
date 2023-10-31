@@ -1,6 +1,9 @@
+import 'package:lucide_icons/lucide_icons.dart';
+import 'package:weteka/presentation/screen/register.dart';
+import 'package:weteka/presentation/screen/utils/app_colors.dart';
 import 'package:weteka/widgets/input_info.dart';
 
-import '../index.dart';
+import '../../index.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
@@ -10,7 +13,7 @@ class Login extends StatelessWidget {
     return Scaffold(
       appBar: appBar(context),
       body: SingleChildScrollView(
-        physics: const ScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -19,79 +22,71 @@ class Login extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 30, top: 110),
                 child: Image.asset('assets/images/weteka logo.png'),
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 10),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
                 child: InputInformation(
                   tit: 'Email',
-                  titAlign: 324,
-                  preIcon: Icon(
-                    Icons.email_outlined,
-                    color: Color.fromARGB(95, 0, 115, 255),
-                  ),
-                  sufIcon: Icon(Icons.remove_red_eye_sharp),
+                  titAlign: 300,
+                  preIcon: Icon(LucideIcons.mail,
+                      color: hexaCodeToColor(AppColor.primaryColor60)),
+                  sufIcon: const Icon(LucideIcons.eye),
                   isSuf: false,
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 15,
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 10),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
                 child: InputInformation(
                   tit: 'Password',
-                  titAlign: 295,
-                  preIcon: Icon(
-                    Icons.key_outlined,
-                    color: Color.fromARGB(95, 0, 115, 255),
-                  ),
-                  sufIcon: Icon(
-                    Icons.remove_red_eye_outlined,
-                    color: Color.fromARGB(95, 0, 115, 255),
-                  ),
+                  titAlign: 250,
+                  preIcon: Icon(LucideIcons.lock,
+                      color: hexaCodeToColor(AppColor.primaryColor60)),
+                  sufIcon: Icon(Icons.remove_red_eye_outlined,
+                      color: hexaCodeToColor(AppColor.primaryColor60)),
                   isSuf: true,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                  left: 250,
-                ),
+                padding: const EdgeInsets.only(left: 230),
                 child: TextButton(
                   onPressed: () {},
-                  child: const Text(
+                  child: Text(
                     'Forgot password',
                     style: TextStyle(
-                      color: Color.fromARGB(184, 136, 182, 238),
-                    ),
+                        color: hexaCodeToColor(AppColor.primaryColor30)),
                   ),
                 ),
               ),
-              ElevatedButtonCust(
-                tit: 'Login',
-                w: 357,
-                h: 45,
-                sizfo: 17,
-                circleBut: 32,
-                onNavigator: () {},
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: ElevatedButtonCust(
+                  tit: 'Login',
+                  w: 357,
+                  h: 45,
+                  sizfo: 17,
+                  circleBut: 32,
+                  onNavigator: () {},
+                ),
               ),
               const SizedBox(
                 height: 15,
               ),
-              const Text(
+              Text(
                 'Or',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 0, 115, 255),
-                ),
+                style: TextStyle(color: hexaCodeToColor(AppColor.primaryColor)),
               ),
               const SizedBox(
                 height: 15,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 12, right: 12),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Container(
                   height: 50,
                   decoration: BoxDecoration(
                     border: Border.all(
-                        color: const Color.fromARGB(255, 0, 115, 255)),
+                        color: hexaCodeToColor(AppColor.primaryColor1)),
                     borderRadius: const BorderRadius.all(
                       Radius.circular(32),
                     ),
@@ -100,17 +95,17 @@ class Login extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 85),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: const [
+                      children: [
                         Text('G',
                             style: TextStyle(
-                              color: Color.fromARGB(255, 0, 115, 255),
+                              color: hexaCodeToColor(AppColor.primaryColor1),
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
                             )),
                         Text(
                           'Login with Google',
                           style: TextStyle(
-                              color: Color.fromARGB(255, 0, 115, 255)),
+                              color: hexaCodeToColor(AppColor.primaryColor1)),
                         ),
                       ],
                     ),
@@ -121,18 +116,23 @@ class Login extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 85),
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       'Do not have account!',
                       style: TextStyle(
-                        color: Color.fromARGB(184, 136, 182, 238),
-                      ),
+                          color: hexaCodeToColor(AppColor.primaryColor30)),
                     ),
                     TextButton(
-                      onPressed: () {},
-                      child: const Text(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Register(),
+                            ));
+                      },
+                      child: Text(
                         'Register',
                         style: TextStyle(
-                          color: Color.fromARGB(255, 0, 115, 255),
+                          color: hexaCodeToColor(AppColor.primaryColor),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
