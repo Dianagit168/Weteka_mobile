@@ -1,84 +1,85 @@
+import 'package:weteka/domain/usecase/data_uc_impl.dart';
 import 'package:weteka/index.dart';
-import 'package:weteka/widgets/chanel_account_weteka.dart';
+import 'package:weteka/widgets/org_channel.dart';
+import 'package:weteka/widgets/video_widget.dart';
 
 class SinglePageCourse extends StatelessWidget {
-  const SinglePageCourse({Key? key}) : super(key: key);
+  SinglePageCourse({Key? key, this.aboutCourse, this.index}) : super(key: key);
+  final List<dynamic>? aboutCourse;
+  final int? index;
+  final FetchDataUcImpl fetchDataUcImpl = FetchDataUcImpl();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            children: [
-              video(context),
-              const Padding(
-                padding: EdgeInsets.only(left: 18),
-                child: ChanelAccountWeteka(),
-              ),
-              interested(context),
-              listVideo(context),
-            ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: wetekaAppBar(context, isImg: false, isScan: false),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              children: [
+                video(context),
+                Padding(
+                  padding: const EdgeInsets.only(left: 18),
+                  child: OrgChannel(
+                    orgChannel: aboutCourse,
+                    index: index,
+                  ),
+                ),
+                interested(context),
+                listVideo(context),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
-}
 
-Widget video(BuildContext context) {
-  return Stack(
-    alignment: Alignment.topCenter,
-    children: [
-      SizedBox(
-        width: MediaQuery.of(context).size.width,
-        height: 300,
-        child: Column(
-          children: [
-            Image.asset(
-              'assets/images/yt.png',
-              width: MediaQuery.of(context).size.width,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 18, top: 18),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const CustomText(
-                    title: 'What is Weteka? Is it help our new generations?',
-                    isFontSize: false,
-                    fontSize: 17,
-                    color: Color.fromARGB(255, 2, 28, 60),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: const [
-                      Text('1.2K views'),
-                      Text(' - 2 month ago'),
-                    ],
-                  )
-                ],
+  Widget video(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(
+          height: MediaQuery.of(context).size.height / 2.5,
+          child: const VideoWidget(
+            videoLink:
+                'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 18, top: 18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomText(
+                title: aboutCourse![index!]["title"],
+                isFontSize: false,
+                fontSize: 17,
+                color: const Color.fromARGB(255, 2, 28, 60),
               ),
-            )
-          ],
-        ),
-      ),
-      Container(
-        height: 70,
-        width: 70,
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: Color.fromARGB(155, 118, 142, 171),
-        ),
-        child: Image.asset(
-          'assets/images/big_play.png',
-        ),
-      )
-    ],
-  );
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Row(
+                  children: [
+                    Text('${aboutCourse![index!]["views"]} views - '),
+                    Text(
+                      '${fetchDataUcImpl.formatDateForWeteka(
+                        aboutCourse![index!]["createdAt"],
+                      )} ago'
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        )
+      ],
+    );
+  }
 }
 
 Widget interested(BuildContext context) {

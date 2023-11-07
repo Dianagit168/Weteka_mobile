@@ -1,7 +1,11 @@
+import 'package:weteka/domain/usecase/data_uc_impl.dart';
 import 'package:weteka/index.dart';
+import 'package:weteka/presentation/screen/singlepage_book/singlepage_book.dart';
+import 'package:weteka/presentation/screen/utils/app_colors.dart';
 
 class LibraryScreen extends StatelessWidget {
-  const LibraryScreen({Key? key}) : super(key: key);
+  LibraryScreen({Key? key}) : super(key: key);
+  final FetchDataUcImpl fetchDataUcImpl = FetchDataUcImpl();
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +38,7 @@ class LibraryScreen extends StatelessWidget {
   }
 
   Widget books(BuildContext context) {
+    fetchDataUcImpl.getQuery();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -43,77 +48,184 @@ class LibraryScreen extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        GridView.builder(
-          physics: const BouncingScrollPhysics(),
-          shrinkWrap: true,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: 15, //គម្លាតលើក្រោម
-            crossAxisSpacing: 10, //គម្លាតឆ្វេងស្តាំ
-            mainAxisExtent: 250, //​ទំហំផ្ទៃ
-          ),
-          itemCount: listLibrary.length,
-          itemBuilder: (context, index) {
-            return Column(
-              children: [
-                Image.asset(
-                  '${listLibrary[index].img}',
-                ),
-                Row(
-                  children: const [
-                    RateStar(),
-                    RateStar(),
-                    RateStar(),
-                    RateStar(isBlue: false),
-                    RateStar(isBlue: false),
-                  ],
-                ),
-                Expanded(
-                  child: SizedBox(
-                    width: (MediaQuery.of(context).size.width / 3) - 25,
-                    child: Text(
-                      "${listLibrary[index].tit}",
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                        color: Color.fromARGB(216, 2, 28, 60),
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+        ValueListenableBuilder(
+            valueListenable: fetchDataUcImpl.storeLibrary,
+            builder: (context, List<dynamic> fetchAllBook, wg) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GridView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                    mainAxisExtent: 350,
                   ),
-                ),
-                Row(
-                  children: [
-                    Image.asset('${listLibrary[index].subimg}'),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "${listLibrary[index].tit2}",
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 11,
-                              color: Color.fromARGB(155, 2, 28, 60)),
+                  itemCount: fetchAllBook.length,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SinglePageBook(
+                            detailBook: fetchAllBook,
+                            index: index,
+                          ),
                         ),
-                        Text(
-                          "${listLibrary[index].subTit}",
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 9,
-                              color: Color.fromARGB(67, 2, 28, 60)),
+                      ),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
                         ),
-                      ],
-                    ),
-                  ],
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 4, right: 4, top: 4),
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                child: Image.network(
+                                  fetchAllBook[index]['thumbnail'],
+                                  height: 230,
+                                  width: 180,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.only(left: 41),
+                              child: Row(
+                                children: [
+                                  RateStar(),
+                                  RateStar(),
+                                  RateStar(),
+                                  RateStar(isBlue: false),
+                                  RateStar(isBlue: false),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: Expanded(
+                                child: SizedBox(
+                                  width:
+                                      (MediaQuery.of(context).size.width / 2) -
+                                          25,
+                                  child: CustomText(
+                                    title: fetchAllBook[index]['title'],
+                                    isFontSize: false,
+                                    fontSize: 12,
+                                    color: hexaCodeToColor(AppColor.blublack),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const Spacer(),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 8.0, bottom: 5),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    height: 35,
+                                    width: 35,
+                                    decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.all(
+                                          Radius.circular(32),
+                                        ),
+                                        image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(
+                                            fetchAllBook[index]["organization"]
+                                                ["logo"],
+                                          ),
+                                        )),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          SizedBox(
+                                            width: (MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    4.5) -
+                                                20,
+                                            child: Text(
+                                              fetchAllBook[index]
+                                                  ["organization"]["name"],
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 11,
+                                                color: hexaCodeToColor(
+                                                    AppColor.blublack),
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                          if (fetchAllBook[index]
+                                                      ["organization"]
+                                                  ["isVerify"] ==
+                                              true)
+                                            const Icon(
+                                              LucideIcons.badgeCheck,
+                                              color: Colors.blue,
+                                              size: 15,
+                                            ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsets.only(top: 3.0),
+                                            child: CustomText(
+                                              title: fetchAllBook[index]
+                                                      ["views"]
+                                                  .toString(),
+                                              isFontSize: false,
+                                              fontSize: 9,
+                                              color: const Color.fromARGB(
+                                                  67, 2, 28, 60),
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          const CustomText(
+                                            title: "ចំនួនទស្សនា",
+                                            isFontSize: false,
+                                            fontSize: 9,
+                                            color:
+                                                Color.fromARGB(67, 2, 28, 60),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
                 ),
-              ],
-            );
-          },
-        ),
+              );
+            }),
         const SizedBox(
           height: 60,
         )

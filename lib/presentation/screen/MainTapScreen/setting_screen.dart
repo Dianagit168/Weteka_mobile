@@ -163,13 +163,13 @@ class SettingScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 20, bottom: 16),
+        const Padding(
+          padding: EdgeInsets.only(top: 20, bottom: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               CustomText(
-                title: 'Community',
+                title: 'Community ( Usag expansion  flutter)',
               ),
               Icon(Icons.keyboard_arrow_up_outlined),
             ],
@@ -225,11 +225,11 @@ class SettingScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 24, bottom: 16),
+        const Padding(
+          padding: EdgeInsets.only(top: 24, bottom: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               CustomText(
                 title: 'Help&Support',
               ),
@@ -283,11 +283,11 @@ class SettingScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 24, bottom: 16),
+        const Padding(
+          padding: EdgeInsets.only(top: 24, bottom: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               CustomText(
                 title: 'Settings',
               ),

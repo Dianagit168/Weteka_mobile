@@ -1,8 +1,11 @@
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:weteka/index.dart';
-import 'package:weteka/widgets/contents.dart';
 
 class SinglePageBookReading extends StatelessWidget {
-  const SinglePageBookReading({Key? key}) : super(key: key);
+  const SinglePageBookReading({Key? key, this.readTheBook, this.index})
+      : super(key: key);
+  final List<dynamic>? readTheBook;
+  final int? index;
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +19,12 @@ class SinglePageBookReading extends StatelessWidget {
             isBell: false),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                color: const Color.fromARGB(10, 2, 28, 60),
-              ),
-              child: const Padding(
-                padding: EdgeInsets.all(12.0),
-                child: Contents(),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: Card(
+              clipBehavior: Clip.antiAliasWithSaveLayer,
+              child: SfPdfViewer.network(
+                readTheBook![index!]["file"],
               ),
             ),
           ),

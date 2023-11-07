@@ -10,7 +10,7 @@ class HomeProfile extends StatelessWidget {
       child: Column(
         children: [
           allInformation(context),
-          const Course(
+           Course(
             tit: 'Owned Contents',
             isTit: false,
           )

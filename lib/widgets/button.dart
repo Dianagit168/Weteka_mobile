@@ -45,6 +45,7 @@ class ElevatedButtonCust extends StatelessWidget {
       ),
       onPressed: onNavigator,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           haveImg!

@@ -19,7 +19,7 @@ class SchoolSubscribedScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     subscribChanel(context),
-                    const Course(
+                     Course(
                       isTit: false,
                     ),
                     const SizedBox(

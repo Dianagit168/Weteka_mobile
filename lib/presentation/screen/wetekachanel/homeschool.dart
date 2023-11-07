@@ -34,7 +34,7 @@ class HomeSchool extends StatelessWidget {
                     ),
                   ),
                   grade(context),
-                  const Course(
+                  Course(
                     tit: 'Contents',
                   ),
                   const SizedBox(
@@ -51,9 +51,9 @@ class HomeSchool extends StatelessWidget {
 }
 
 Widget persional(BuildContext context) {
-  return SizedBox(
+  return const SizedBox(
     child: Column(
-      children: const [
+      children: [
         Information(
           img: 'assets/images/graduation-cap.png',
           tit: 'Teachers',
@@ -78,9 +78,9 @@ Widget persional(BuildContext context) {
 }
 
 Widget description(BuildContext context) {
-  return Column(
+  return const Column(
     crossAxisAlignment: CrossAxisAlignment.start,
-    children: const [
+    children: [
       Text(
         'Descriptions',
         style: TextStyle(color: Color.fromARGB(158, 2, 28, 60)),

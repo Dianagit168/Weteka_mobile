@@ -7,7 +7,7 @@ class SchoolCourse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
       child: Course(
         tit: 'Contents',
