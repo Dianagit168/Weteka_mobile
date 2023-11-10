@@ -37,7 +37,7 @@ class Course extends StatelessWidget {
                   crossAxisCount: 1,
                   crossAxisSpacing: 0,
                   mainAxisSpacing: 10,
-                  mainAxisExtent: 270,
+                  mainAxisExtent: 240,
                 ),
                 itemCount: fetchAllCourse.length,
                 itemBuilder: (context, index) {
@@ -66,7 +66,7 @@ class Course extends StatelessWidget {
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             child: Image.network(
                               fetchAllCourse[index]["thumbnail"],
-                              height: 170,
+                              height: 190,
                               width: MediaQuery.of(context).size.width,
                               fit: BoxFit.cover,
                             ),
@@ -78,7 +78,7 @@ class Course extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 5, left: 10),
                             child: SizedBox(
                               width:
-                                  (MediaQuery.of(context).size.width / 2) - 25,
+                                  (MediaQuery.of(context).size.width ) ,
                               child: Text(
                                 fetchAllCourse[index]["title"],
                                 style: TextStyle(
@@ -88,75 +88,6 @@ class Course extends StatelessWidget {
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 8, top: 10),
-                            child: Row(
-                              children: [
-                                Container(
-                                  height: 35,
-                                  width: 35,
-                                  decoration: BoxDecoration(
-                                      borderRadius: const BorderRadius.all(
-                                        Radius.circular(32),
-                                      ),
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: NetworkImage(
-                                          fetchAllCourse[index]["organization"]
-                                              ["logo"],
-                                        ),
-                                      )),
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                          fetchAllCourse[index]["organization"]
-                                              ["name"],
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 11,
-                                            color:
-                                                Color.fromARGB(155, 2, 28, 60),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        if (fetchAllCourse[index]
-                                                ["organization"]["isVerify"] ==
-                                            true)
-                                          const Icon(
-                                            LucideIcons.badgeCheck,
-                                            color: Colors.blue,
-                                            size: 15,
-                                          )
-                                      ],
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 25),
-                                      child: Text(
-                                        fetchAllCourse[index]["views"]
-                                            .toString(),
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 9,
-                                          color: Color.fromARGB(67, 2, 28, 60),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
                             ),
                           ),
                         ],

@@ -1,6 +1,7 @@
 import 'package:weteka/domain/usecase/data_uc_impl.dart';
 import 'package:weteka/index.dart';
 import 'package:weteka/presentation/screen/singlepage_book_resding/singlepage_book_resding.dart';
+import 'package:weteka/presentation/screen/utils/app_colors.dart';
 
 class SinglePageBook extends StatelessWidget {
   SinglePageBook({Key? key, this.detailBook, this.index}) : super(key: key);
@@ -35,8 +36,6 @@ class SinglePageBook extends StatelessWidget {
             height: 10,
           ),
           SizedBox(
-            height: 210,
-            width: 150,
             child: Card(
               clipBehavior: Clip.antiAliasWithSaveLayer,
               shape: RoundedRectangleBorder(
@@ -44,29 +43,92 @@ class SinglePageBook extends StatelessWidget {
               ),
               child: Image.network(
                 detailBook![index!]["thumbnail"],
+                height: 210,
+                width: 150,
+                fit: BoxFit.cover,
               ),
             ),
           ),
           const SizedBox(
             height: 13,
           ),
-          CustomText(
-            title: detailBook![index!]["organization"]["name"],
-            isFontSize: false,
-            fontSize: 14,
-            color: const Color.fromARGB(255, 0, 115, 255),
-            isBold: false,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 35,
+                width: 35,
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(32),
+                    ),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        detailBook![index!]["organization"]["logo"],
+                      ),
+                    )),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        detailBook![index!]["organization"]["name"],
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 11,
+                          color: hexaCodeToColor(AppColor.blublack),
+                        ),
+                      ),
+                      if (detailBook![index!]["organization"]["isVerify"] ==
+                          true)
+                        const Icon(
+                          LucideIcons.badgeCheck,
+                          color: Colors.blue,
+                          size: 15,
+                        ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 3.0),
+                        child: CustomText(
+                          title: detailBook![index!]["views"].toString(),
+                          isFontSize: false,
+                          fontSize: 9,
+                          color: const Color.fromARGB(67, 2, 28, 60),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      const CustomText(
+                        title: "ចំនួនទស្សនា",
+                        isFontSize: false,
+                        fontSize: 9,
+                        color: Color.fromARGB(67, 2, 28, 60),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
           ),
           const SizedBox(
-            height: 10,
+            height: 15,
           ),
-          const CustomText(
-            title: 'Copyright and trademark Policy',
-            isFontSize: false,
-            fontSize: 18,
-            isBold: false,
-            color: Color.fromARGB(210, 2, 28, 60),
-          ),
+          CustomText(
+              title: detailBook![index!]["title"],
+              isFontSize: false,
+              fontSize: 15,
+              color: hexaCodeToColor(AppColor.blublack)),
           Container(
             margin: const EdgeInsets.only(left: 20),
             height: 170,
@@ -77,33 +139,37 @@ class SinglePageBook extends StatelessWidget {
               itemCount: singleBookData.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 45),
+                  padding: const EdgeInsets.only(top: 20, left: 60),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(bottom: 10),
                         child: Container(
-                          height: 60,
-                          width: 60,
+                          height: 35,
+                          width: 35,
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Color.fromARGB(17, 0, 115, 255),
                           ),
-                          child: Image.asset('${singleBookData[index].img}'),
+                          child: Image.asset(
+                            '${singleBookData[index].img}',
+                          ),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 10),
                         child: CustomText(
-                          title: '${singleBookData[index].tit}',
-                        ),
+                            title: '${singleBookData[index].tit}',
+                            isFontSize: false,
+                            fontSize: 11,
+                            color: const Color.fromARGB(255, 2, 28, 60)),
                       ),
                       CustomText(
                         title: '${singleBookData[index].subTit},',
                         isBold: false,
                         isFontSize: false,
-                        fontSize: 13,
+                        fontSize: 10,
                         color: const Color.fromARGB(150, 2, 28, 60),
                       ),
                     ],

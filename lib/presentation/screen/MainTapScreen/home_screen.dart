@@ -2,6 +2,7 @@ import 'package:weteka/domain/usecase/data_uc_impl.dart';
 import 'package:weteka/index.dart';
 
 import 'package:weteka/presentation/screen/progress/progress_screen.dart';
+import 'package:weteka/presentation/screen/seeall_book_Screen.dart';
 
 import 'package:weteka/presentation/screen/singlepage_book/singlepage_book.dart';
 import 'package:weteka/presentation/screen/singlepage_kaset/singlepage_kaset.dart';
@@ -20,18 +21,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final FetchDataUcImpl fetchDataUcImpl = FetchDataUcImpl();
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   fetchDataUcImpl.scrollController.addListener(() {
-  //     fetchDataUcImpl.scrollListener();
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     fetchDataUcImpl.getQuery();
-    //fetchDataUcImpl.scrollListener();
 
     return SafeArea(
       child: Scaffold(
@@ -39,34 +31,32 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: wetekaAppBar(context, isBell: false, isExpanded: false),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: [
-                  const Explore(
-                    content: 'Find your courses',
-                  ),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                const Explore(
+                  content: 'Find your courses',
+                ),
 
-                  continueCourse(context),
-                  const Ctegory(),
-                  // Popular Course
-                  popularContent(
-                    context,
-                    fetchDataUcImpl,
-                  ),
+                continueCourse(context),
+                const Category(),
+                // Popular Course
+                popularContent(
+                  context,
+                  fetchDataUcImpl,
+                ),
 
-                  // Library
-                  library(context, fetchDataUcImpl),
-                  kasetOrPharagraph(
-                    context,
-                    fetchDataUcImpl,
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                ],
-              ),
+                // Library
+                library(context, fetchDataUcImpl),
+                kasetOrPharagraph(
+                  context,
+                  fetchDataUcImpl,
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+              ],
             ),
           ),
         ),
@@ -191,7 +181,7 @@ Widget popularContent(
           ],
         ),
         SizedBox(
-          height: 190,
+          height: 150,
           child: ValueListenableBuilder(
               valueListenable: fetchDataUcImpl.storePopularCourse,
               builder: (context, List<dynamic> fetchCourse, wg) {
@@ -199,145 +189,59 @@ Widget popularContent(
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
-                  // itemCount: 8,
-                  itemCount: fetchCourse.length,
+                  itemCount: 8,
                   itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 8),
-                      child: InkWell(
-                        onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SinglePageCourse(
-                              aboutCourse: fetchCourse,
-                              index: index,
+                    return fetchCourse.isEmpty
+                        ? const CircularProgressIndicator()
+                        : InkWell(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SinglePageCourse(
+                                  aboutCourse: fetchCourse,
+                                  index: index,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 7, left: 8.0),
-                                child: Card(
-                                  elevation: 0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(6),
-                                  ),
-                                  margin: const EdgeInsets.only(right: 8),
-                                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  child: Image.network(
-                                    fetchCourse[index]["thumbnail"],
-                                    height: 100,
-                                    width: 165,
-                                    fit: BoxFit.cover,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 7, left: 4),
+                                  child: Card(
+                                    elevation: 0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    child: Image.network(
+                                      fetchCourse[index]["thumbnail"],
+                                      height: 100,
+                                      width: 150,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const SizedBox(
-                                height: 7,
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 5, left: 10),
-                                child: SizedBox(
-                                  width:
-                                      (MediaQuery.of(context).size.width / 2) -
-                                          25,
-                                  child: Text(
-                                    fetchCourse[index]["title"],
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 12,
-                                      color: Color.fromARGB(216, 2, 28, 60),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 5,
+                                    left: 10,
+                                  ),
+                                  child: SizedBox(
+                                    width: (MediaQuery.of(context).size.width /
+                                        2.7),
+                                    child: CustomText(
+                                      maxLine: 1,
+                                      isBold: false,
+                                      fontWeight: FontWeight.normal,
+                                      title: fetchCourse[index]["title"],
                                     ),
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 8, top: 10),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      height: 35,
-                                      width: 35,
-                                      decoration: BoxDecoration(
-                                          borderRadius: const BorderRadius.all(
-                                            Radius.circular(32),
-                                          ),
-                                          image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: NetworkImage(
-                                              fetchCourse[index]["organization"]
-                                                  ["logo"],
-                                            ),
-                                          )),
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.end,
-                                          children: [
-                                            Text(
-                                              fetchCourse[index]["organization"]
-                                                  ["name"],
-                                              style: const TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 11,
-                                                color: Color.fromARGB(
-                                                    155, 2, 28, 60),
-                                              ),
-                                            ),
-                                            const SizedBox(
-                                              width: 10,
-                                            ),
-                                            if (fetchCourse[index]
-                                                        ["organization"]
-                                                    ["isVerify"] ==
-                                                true)
-                                              const Icon(
-                                                LucideIcons.badgeCheck,
-                                                color: Colors.blue,
-                                                size: 15,
-                                              )
-                                          ],
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(right: 25),
-                                          child: Text(
-                                            'អ្នកទស្សនា ${fetchCourse[index]["views"].toString()}​',
-                                            style: const TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 9,
-                                                color: Color.fromARGB(
-                                                    67, 2, 28, 60)),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
+                              ],
+                            ),
+                          );
                   },
                 );
               }),
@@ -362,7 +266,7 @@ Widget library(BuildContext context, FetchDataUcImpl fetchDataUcImpl) {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LibraryScreen(),
+                    builder: (context) => SeeAllBookk(),
                   ),
                 );
               },
@@ -371,7 +275,7 @@ Widget library(BuildContext context, FetchDataUcImpl fetchDataUcImpl) {
           ],
         ),
         SizedBox(
-          height: 350,
+          height: 300,
           width: MediaQuery.of(context).size.width,
           child: ValueListenableBuilder(
               valueListenable: fetchDataUcImpl.storeLibrary,
@@ -383,174 +287,73 @@ Widget library(BuildContext context, FetchDataUcImpl fetchDataUcImpl) {
                   itemCount: 8,
                   // itemCount: fetchLibrary.length,
                   itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: InkWell(
-                        onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SinglePageBook(
-                              detailBook: fetchLibrary,
-                              index: index,
-                            ),
-                          ),
-                        ),
-                        child: SizedBox(
-                          width: 190,
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18),
+                    return fetchLibrary.isEmpty
+                        ? const CircularProgressIndicator()
+                        : InkWell(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SinglePageBook(
+                                  detailBook: fetchLibrary,
+                                  index: index,
+                                ),
+                              ),
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                      left: 4, right: 4, top: 4),
+                                    right: 4,
+                                    top: 4,
+                                  ),
                                   child: Card(
+                                    elevation: 0,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     clipBehavior: Clip.antiAliasWithSaveLayer,
                                     child: Image.network(
                                       fetchLibrary[index]['thumbnail'],
-                                      height: 230,
-                                      width: 180,
-                                      fit: BoxFit.fill,
+                                      height: 220,
+                                      width: 150,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
-                                const Padding(
-                                  padding: EdgeInsets.only(left: 41),
-                                  child: Row(
-                                    children: [
-                                      RateStar(),
-                                      RateStar(),
-                                      RateStar(),
-                                      RateStar(isBlue: false),
-                                      RateStar(isBlue: false),
-                                    ],
-                                  ),
-                                ),
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Expanded(
-                                    child: SizedBox(
-                                      width:
-                                          (MediaQuery.of(context).size.width /
-                                                  2) -
-                                              25,
-                                      child: CustomText(
-                                        title: fetchLibrary[index]['title'],
-                                        isFontSize: false,
-                                        fontSize: 12,
-                                        color:
-                                            hexaCodeToColor(AppColor.blublack),
-                                      ),
+                                  padding:
+                                      const EdgeInsets.only(top: 8, left: 8.0),
+                                  child: SizedBox(
+                                    width: (MediaQuery.of(context).size.width /
+                                        2.7),
+                                    child: CustomText(
+                                      maxLine: 1,
+                                      fontWeight: FontWeight.normal,
+                                      title: fetchLibrary[index]['title'],
+                                      isFontSize: false,
+                                      fontSize: 14,
+                                      color: hexaCodeToColor(AppColor.blublack),
                                     ),
                                   ),
                                 ),
-                                const Spacer(),
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 8.0, bottom: 5),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        height: 35,
-                                        width: 35,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                const BorderRadius.all(
-                                              Radius.circular(32),
-                                            ),
-                                            image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: NetworkImage(
-                                                fetchLibrary[index]
-                                                    ["organization"]["logo"],
-                                              ),
-                                            )),
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              SizedBox(
-                                                width: (MediaQuery.of(context)
-                                                            .size
-                                                            .width /
-                                                        4.5) -
-                                                    20,
-                                                child: Text(
-                                                  fetchLibrary[index]
-                                                      ["organization"]["name"],
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 11,
-                                                    color: hexaCodeToColor(
-                                                        AppColor.blublack),
-                                                  ),
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                ),
-                                              ),
-                                              if (fetchLibrary[index]
-                                                          ["organization"]
-                                                      ["isVerify"] ==
-                                                  true)
-                                                const Icon(
-                                                  LucideIcons.badgeCheck,
-                                                  color: Colors.blue,
-                                                  size: 15,
-                                                ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 3.0),
-                                                child: CustomText(
-                                                  title: fetchLibrary[index]
-                                                          ["views"]
-                                                      .toString(),
-                                                  isFontSize: false,
-                                                  fontSize: 9,
-                                                  color: const Color.fromARGB(
-                                                      67, 2, 28, 60),
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              const CustomText(
-                                                title: "ចំនួនទស្សនា",
-                                                isFontSize: false,
-                                                fontSize: 9,
-                                                color: Color.fromARGB(
-                                                    67, 2, 28, 60),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                  padding:
+                                      const EdgeInsets.only(top: 8, left: 8.0),
+                                  child: CustomText(
+                                    maxLine: 1,
+                                    isBold: false,
+                                    fontWeight: FontWeight.normal,
+                                    title:
+                                        'by ${fetchLibrary[index]['owner']['fullname']}',
+                                    isFontSize: false,
+                                    fontSize: 12,
+                                    color: hexaCodeToColor(AppColor.blublack),
                                   ),
-                                ),
+                                )
                               ],
                             ),
-                          ),
-                        ),
-                      ),
-                    );
+                          );
                   },
                 );
               }),
@@ -612,6 +415,7 @@ Widget kasetOrPharagraph(
                         child: SizedBox(
                           width: 190,
                           child: Card(
+                            elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18),
                             ),
@@ -675,91 +479,18 @@ Widget kasetOrPharagraph(
                                   ),
                                 ),
                                 Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 8, top: 10),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        height: 35,
-                                        width: 35,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                const BorderRadius.all(
-                                              Radius.circular(32),
-                                            ),
-                                            image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: NetworkImage(
-                                                fetchKaset[index]
-                                                    ["organization"]["logo"],
-                                              ),
-                                            )),
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              SizedBox(
-                                                width: (MediaQuery.of(context)
-                                                            .size
-                                                            .width /
-                                                        4) -
-                                                    25,
-                                                child: Text(
-                                                  fetchKaset[index]
-                                                      ["organization"]["name"],
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 11,
-                                                    color: hexaCodeToColor(
-                                                        AppColor.blublack),
-                                                  ),
-                                                  maxLines: 1,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                width: 10,
-                                              ),
-                                              if (fetchKaset[index]
-                                                          ["organization"]
-                                                      ["isVerify"] ==
-                                                  true)
-                                                const Icon(
-                                                  LucideIcons.badgeCheck,
-                                                  color: Colors.blue,
-                                                  size: 15,
-                                                )
-                                            ],
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 25),
-                                            child: Text(
-                                              fetchDataUcImpl
-                                                  .formatDateForWeteka(
-                                                fetchKaset[index]['createdAt'],
-                                              ),
-                                              style: const TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 9,
-                                                  color: Color.fromARGB(
-                                                      67, 2, 28, 60)),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: CustomText(
+                                    isBold: false,
+                                    maxLine: 1,
+                                    fontWeight: FontWeight.normal,
+                                    title:
+                                        'by ${fetchKaset[index]['owner']['fullname']}',
+                                    isFontSize: false,
+                                    fontSize: 12,
+                                    color: hexaCodeToColor(AppColor.blublack),
                                   ),
-                                ),
+                                )
                               ],
                             ),
                           ),

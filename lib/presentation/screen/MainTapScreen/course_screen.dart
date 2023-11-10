@@ -14,13 +14,13 @@ class CourseScreen extends StatelessWidget {
           child: SafeArea(
               child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 children: [
                   const Explore(
                     content: 'Find your course',
                   ),
-                  const Ctegory(),
+                  const Category(),
                   Course(
                     tit: 'Courses',
                     islike: false,

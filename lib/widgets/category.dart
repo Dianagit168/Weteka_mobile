@@ -1,8 +1,8 @@
 import '../data/category.dart';
 import '../index.dart';
 
-class Ctegory extends StatelessWidget {
-  const Ctegory({
+class Category extends StatelessWidget {
+  const Category({
     Key? key,
   }) : super(key: key);
 

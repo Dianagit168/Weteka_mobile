@@ -10,7 +10,7 @@ class CustomText extends StatelessWidget {
     this.isBold = true,
     this.isOverflow = true,
     this.maxLine = 2,
-    this.fontWeight,
+    this.fontWeight=FontWeight.normal,
   }) : super(key: key);
   final String? title;
   final bool? isFontSize;

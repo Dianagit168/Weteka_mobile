@@ -1,40 +1,116 @@
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:weteka/domain/usecase/data_uc_impl.dart';
 import 'package:weteka/index.dart';
 import 'package:weteka/presentation/screen/singlepage_book/singlepage_book.dart';
 import 'package:weteka/presentation/screen/utils/app_colors.dart';
+import 'package:weteka/widgets/category_book.dart';
 
-class LibraryScreen extends StatelessWidget {
-  LibraryScreen({Key? key}) : super(key: key);
+class LibraryScreen extends StatefulWidget {
+  LibraryScreen({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<LibraryScreen> createState() => _LibraryScreenState();
+}
+
+class _LibraryScreenState extends State<LibraryScreen> {
   final FetchDataUcImpl fetchDataUcImpl = FetchDataUcImpl();
+  int activeIndexx = 0;
 
   @override
   Widget build(BuildContext context) {
+    fetchDataUcImpl.getQuery();
     return SafeArea(
       child: Scaffold(
-          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
           appBar: wetekaAppBar(context, isSearch: false),
           body: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: SafeArea(
-                child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  children: [
-                    const Explore(
-                      content: 'Find your book',
-                    ),
-                    const Ctegory(),
-                    books(context),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                  ],
-                ),
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  const Explore(
+                    content: 'Find your book',
+                  ),
+                  _autoPageView(context),
+                  CategoryBookWidget(
+                    title: 'Book A',
+                  ),
+                  CategoryBookWidget(
+                    title: 'Book B',
+                  ),
+                  CategoryBookWidget(
+                    title: 'Book C',
+                  ),
+                  CategoryBookWidget(
+                    title: 'Book D',
+                  ),
+                ],
               ),
-            )),
+            ),
           )),
     );
+  }
+
+  Widget _autoPageView(BuildContext context) {
+    return ValueListenableBuilder(
+        valueListenable: fetchDataUcImpl.storeLibrary,
+        builder: (context, List<dynamic> displayBook, wg) {
+          return Column(
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
+              CarouselSlider.builder(
+                options: CarouselOptions(
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      activeIndexx = index;
+                    });
+                  },
+                  aspectRatio: 16 / 13,
+                  viewportFraction: 1.5,
+                  //autoPlay: true,
+                ),
+                itemCount: 5,
+                itemBuilder: (context, itemIndex, pageViewIndex) {
+                  return Column(
+                    children: [
+                      SizedBox(
+                        height: 210,
+                        width: 130,
+                        child: Card(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Image.network(
+                            displayBook[itemIndex]['thumbnail'],
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      CustomText(
+                        title: displayBook[itemIndex]['title'],
+                      )
+                    ],
+                  );
+                },
+              ),
+              AnimatedSmoothIndicator(
+                activeIndex: activeIndexx,
+                count: 5,
+                effect: const ExpandingDotsEffect(
+                  radius: 16.0,
+                  dotWidth: 8,
+                  dotHeight: 8,
+                  paintStyle: PaintingStyle.fill,
+                ),
+              ),
+            ],
+          );
+        });
   }
 
   Widget books(BuildContext context) {
@@ -58,177 +134,78 @@ class LibraryScreen extends StatelessWidget {
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    crossAxisSpacing: 8,
-                    mainAxisSpacing: 8,
-                    mainAxisExtent: 350,
+                    crossAxisSpacing: 15,
+                    childAspectRatio: 9 / 15,
                   ),
                   itemCount: fetchAllBook.length,
                   itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SinglePageBook(
-                            detailBook: fetchAllBook,
-                            index: index,
-                          ),
-                        ),
-                      ),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 4, right: 4, top: 4),
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                clipBehavior: Clip.antiAliasWithSaveLayer,
-                                child: Image.network(
-                                  fetchAllBook[index]['thumbnail'],
-                                  height: 230,
-                                  width: 180,
-                                  fit: BoxFit.fill,
+                    print(
+                        "fetchAllBook[index]['thumbnail']; ${fetchAllBook[index]['thumbnail']}");
+
+                    return fetchAllBook.isEmpty
+                        ? const CircularProgressIndicator()
+                        : InkWell(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SinglePageBook(
+                                  detailBook: fetchAllBook,
+                                  index: index,
                                 ),
                               ),
                             ),
-                            const Padding(
-                              padding: EdgeInsets.only(left: 41),
-                              child: Row(
-                                children: [
-                                  RateStar(),
-                                  RateStar(),
-                                  RateStar(),
-                                  RateStar(isBlue: false),
-                                  RateStar(isBlue: false),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Expanded(
-                                child: SizedBox(
-                                  width:
-                                      (MediaQuery.of(context).size.width / 2) -
-                                          25,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height / 3.5,
+                                  width: MediaQuery.of(context).size.width,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(16),
+                                    child: Image.network(
+                                      fetchAllBook[index]['thumbnail'],
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 8, left: 2),
+                                  child: SizedBox(
+                                    width: (MediaQuery.of(context).size.width /
+                                        2.7),
+                                    child: CustomText(
+                                      maxLine: 1,
+                                      fontWeight: FontWeight.normal,
+                                      title: fetchAllBook[index]['title'],
+                                      isFontSize: false,
+                                      fontSize: 14,
+                                      color: hexaCodeToColor(AppColor.blublack),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 8, left: 2),
                                   child: CustomText(
-                                    title: fetchAllBook[index]['title'],
+                                    maxLine: 1,
+                                    isBold: false,
+                                    fontWeight: FontWeight.normal,
+                                    title:
+                                        'by ${fetchAllBook[index]['owner']['fullname']}',
                                     isFontSize: false,
                                     fontSize: 12,
                                     color: hexaCodeToColor(AppColor.blublack),
                                   ),
-                                ),
-                              ),
+                                )
+                              ],
                             ),
-                            const Spacer(),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 8.0, bottom: 5),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    height: 35,
-                                    width: 35,
-                                    decoration: BoxDecoration(
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(32),
-                                        ),
-                                        image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: NetworkImage(
-                                            fetchAllBook[index]["organization"]
-                                                ["logo"],
-                                          ),
-                                        )),
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          SizedBox(
-                                            width: (MediaQuery.of(context)
-                                                        .size
-                                                        .width /
-                                                    4.5) -
-                                                20,
-                                            child: Text(
-                                              fetchAllBook[index]
-                                                  ["organization"]["name"],
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 11,
-                                                color: hexaCodeToColor(
-                                                    AppColor.blublack),
-                                              ),
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ),
-                                          if (fetchAllBook[index]
-                                                      ["organization"]
-                                                  ["isVerify"] ==
-                                              true)
-                                            const Icon(
-                                              LucideIcons.badgeCheck,
-                                              color: Colors.blue,
-                                              size: 15,
-                                            ),
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(top: 3.0),
-                                            child: CustomText(
-                                              title: fetchAllBook[index]
-                                                      ["views"]
-                                                  .toString(),
-                                              isFontSize: false,
-                                              fontSize: 9,
-                                              color: const Color.fromARGB(
-                                                  67, 2, 28, 60),
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            width: 5,
-                                          ),
-                                          const CustomText(
-                                            title: "ចំនួនទស្សនា",
-                                            isFontSize: false,
-                                            fontSize: 9,
-                                            color:
-                                                Color.fromARGB(67, 2, 28, 60),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
+                          );
                   },
                 ),
               );
             }),
-        const SizedBox(
-          height: 60,
-        )
       ],
     );
   }

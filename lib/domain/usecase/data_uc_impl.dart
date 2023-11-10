@@ -4,9 +4,6 @@ import 'package:weteka/data/api/graphql_api.dart';
 
 class FetchDataUcImpl {
   final GraphQLApi graphQLApi = GraphQLApi();
-  
-
-  
 
   ValueNotifier<List<dynamic>> storePopularCourse = ValueNotifier([]);
   ValueNotifier<List<dynamic>> storeLibrary = ValueNotifier([]);
@@ -18,8 +15,6 @@ class FetchDataUcImpl {
     storeLibrary.value = await graphQLApi.getLibrary();
 
     storeKasetOrPharagraph.value = await graphQLApi.getKasetOrPhragraph();
-
-    print('Diana lol ${storeKasetOrPharagraph.value.length}');
   }
 
   String formatDateForWeteka(String timestampString) {
@@ -34,10 +29,10 @@ class FetchDataUcImpl {
 
   // void scrollListener() {
   //   if (scrollController.position.pixels == scrollController.position.maxScrollExtent) {
-      
+
   //     print('ScrollListener');
 
-  //   } 
-    
+  //   }
+
   // }
 }
