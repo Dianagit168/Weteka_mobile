@@ -23,6 +23,9 @@ class Explore extends StatelessWidget {
         TextFieldCustom(
           hintText: content!,
         ),
+        const SizedBox(
+          height: 5,
+        ),
       ],
     );
   }

@@ -173,7 +173,7 @@ class _SchoolSubscribedScreenState extends State<SchoolSubscribedScreen> {
                 enlargeCenterPage: true,
                 disableCenter: true,
                 autoPlay: true,
-                padEnds: false,
+               // padEnds: false,
               ),
               itemCount: 5,
               itemBuilder: (context, itemIndex, pageViewIndex) {

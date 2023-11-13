@@ -77,8 +77,7 @@ class Course extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(top: 5, left: 10),
                             child: SizedBox(
-                              width:
-                                  (MediaQuery.of(context).size.width ) ,
+                              width: (MediaQuery.of(context).size.width),
                               child: Text(
                                 fetchAllCourse[index]["title"],
                                 style: TextStyle(
@@ -97,9 +96,6 @@ class Course extends StatelessWidget {
                 },
               );
             }),
-        const SizedBox(
-          height: 60,
-        )
       ],
     );
   }

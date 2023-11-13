@@ -1,6 +1,7 @@
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:weteka/index.dart';
 import 'package:weteka/presentation/screen/utils/app_colors.dart';
+import 'package:weteka/presentation/screen/video_screen.dart';
 
 class MainTap extends StatefulWidget {
   const MainTap({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _MainTapState extends State<MainTap> {
   List<Widget> allPage = [
     const HomeScreen(),
     LibraryScreen(),
-    const CourseScreen(),
+    VideoScreen(),
     const SchoolSubscribedScreen(),
     const SettingScreen(),
   ];
@@ -46,7 +47,7 @@ class _MainTapState extends State<MainTap> {
             text: 'Library',
           ),
           GButton(
-            icon: LucideIcons.video,
+            icon: LucideIcons.film,
             text: 'Video',
           ),
           GButton(

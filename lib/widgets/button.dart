@@ -51,7 +51,7 @@ class ElevatedButtonCust extends StatelessWidget {
           haveImg!
               ? Image.asset(img!)
               : haveIcon!
-                  ?  Icon(icon,color: Colors.black,)
+                  ?  Icon(icon,color: Colors.black,size: 16,)
                   : const Text(''),
           const SizedBox(
             width: 10,

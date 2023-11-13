@@ -1,5 +1,3 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:weteka/data/shortcutsitem.dart';
 import 'package:weteka/index.dart';
 
@@ -28,7 +26,7 @@ class SettingScreen extends StatelessWidget {
                   helpAndSupport(context),
                   settings(context),
                   Padding(
-                    padding: const EdgeInsets.only(top: 16),
+                    padding: const EdgeInsets.only(top: 30),
                     child: ElevatedButtonCust(
                       tit: 'Logout',
                       w: 370,
@@ -115,23 +113,24 @@ class SettingScreen extends StatelessWidget {
             title: 'Shortcuts',
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 12, right: 12),
-          child: GridView.builder(
-            shrinkWrap: true,
-            itemCount: shorcutsItem.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 8,
-              mainAxisSpacing: 8,
-              mainAxisExtent: 75,
-            ),
-            itemBuilder: (context, index) {
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: const Color.fromARGB(17, 0, 115, 255),
-                ),
+        GridView.builder(
+          physics: const BouncingScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: shorcutsItem.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 8,
+            mainAxisSpacing: 8,
+            mainAxisExtent: 75,
+          ),
+          itemBuilder: (context, index) {
+            return Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: const Color.fromARGB(17, 0, 115, 255),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -151,9 +150,9 @@ class SettingScreen extends StatelessWidget {
                     )
                   ],
                 ),
-              );
-            },
-          ),
+              ),
+            );
+          },
         ),
       ],
     );
@@ -175,23 +174,24 @@ class SettingScreen extends StatelessWidget {
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 12, right: 12),
-          child: GridView.builder(
-            shrinkWrap: true,
-            itemCount: commulist.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 8,
-              mainAxisSpacing: 8,
-              mainAxisExtent: 75,
-            ),
-            itemBuilder: (context, index) {
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: const Color.fromARGB(17, 0, 115, 255),
-                ),
+        GridView.builder(
+          shrinkWrap: true,
+          physics: const BouncingScrollPhysics(),
+          itemCount: commulist.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 8,
+            mainAxisSpacing: 8,
+            mainAxisExtent: 75,
+          ),
+          itemBuilder: (context, index) {
+            return Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: const Color.fromARGB(17, 0, 115, 255),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -213,9 +213,9 @@ class SettingScreen extends StatelessWidget {
                     )
                   ],
                 ),
-              );
-            },
-          ),
+              ),
+            );
+          },
         ),
       ],
     );
@@ -237,23 +237,24 @@ class SettingScreen extends StatelessWidget {
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 12, right: 12),
-          child: GridView.builder(
-            shrinkWrap: true,
-            itemCount: helpsupportlist.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 8,
-              mainAxisSpacing: 8,
-              mainAxisExtent: 75,
-            ),
-            itemBuilder: (context, index) {
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: const Color.fromARGB(17, 0, 115, 255),
-                ),
+        GridView.builder(
+          shrinkWrap: true,
+          physics: const BouncingScrollPhysics(),
+          itemCount: helpsupportlist.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 8,
+            mainAxisSpacing: 8,
+            mainAxisExtent: 75,
+          ),
+          itemBuilder: (context, index) {
+            return Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: const Color.fromARGB(17, 0, 115, 255),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -271,9 +272,9 @@ class SettingScreen extends StatelessWidget {
                     )
                   ],
                 ),
-              );
-            },
-          ),
+              ),
+            );
+          },
         ),
       ],
     );
@@ -295,23 +296,24 @@ class SettingScreen extends StatelessWidget {
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 12, right: 12),
-          child: GridView.builder(
-            shrinkWrap: true,
-            itemCount: settingList.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              crossAxisSpacing: 8,
-              mainAxisSpacing: 8,
-              mainAxisExtent: 75,
-            ),
-            itemBuilder: (context, index) {
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: const Color.fromARGB(17, 0, 115, 255),
-                ),
+        GridView.builder(
+          shrinkWrap: true,
+          physics: const BouncingScrollPhysics(),
+          itemCount: settingList.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 1,
+            crossAxisSpacing: 8,
+            mainAxisSpacing: 8,
+            mainAxisExtent: 75,
+          ),
+          itemBuilder: (context, index) {
+            return Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: const Color.fromARGB(17, 0, 115, 255),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -328,9 +330,9 @@ class SettingScreen extends StatelessWidget {
                         ))
                   ],
                 ),
-              );
-            },
-          ),
+              ),
+            );
+          },
         ),
       ],
     );
