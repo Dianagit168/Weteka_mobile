@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:weteka/domain/usecase/data_uc_impl.dart';
 import 'package:weteka/index.dart';
